@@ -1,0 +1,20 @@
+_target_: src.models.enzyme_module.EnzymeLitModule
+lr: 0.001
+
+net:
+  _target_: src.models.components.dimenetpp.DimeNetPlusPlus
+  num_atoms: 21
+  num_classes: 703
+  out_channels: 128 #Size of each output sample.
+  hidden_channels: 128
+  num_spherical: 7 #Number of spherical harmonics.
+  num_radial: 6 #Number of radial basis functions.
+  num_blocks: 4 #Number of building blocks.
+  int_emb_size: 64 #Size of embedding in the interaction block
+  basis_emb_size: 8 #Size of basis embedding in the interaction block
+  out_emb_channels: 256 #Size of embedding in the output block
+  cutoff: ${datamodule.cutoff}
+  dropout: 0.25
+
+   
+

@@ -1,0 +1,10 @@
+_target_: src.models.enzyme_module.EnzymeLitModule
+lr: 0.001
+
+net:
+  _target_: src.models.components.ginnet.GIN
+  num_atoms: 21
+  num_classes: 703
+  hidden_channels: 128
+  dropout: 0.25
+  cutoff: ${datamodule.cutoff}

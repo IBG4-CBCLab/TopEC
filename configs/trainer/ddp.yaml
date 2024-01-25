@@ -1,0 +1,8 @@
+defaults:
+  - default.yaml
+
+gpus: 4
+strategy: ddp
+num_nodes: 4
+
+# accumulate_grad_batches: 1024

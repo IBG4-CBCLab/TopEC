@@ -1,0 +1,33 @@
+_target_: src.models.enzyme_pronet_module.EnzymeLitModule
+# _target_: src.models.components.pronet.ProNet
+lr: 0.001
+
+net:
+  _target_: src.models.components.pronet.ProNet
+  level: aminoacid #backbone #allatom
+  num_blocks: 4 #Number of building blocks.
+  hidden_channels: 128
+  out_channels: 384 #Size of each output sample.
+  mid_emb: 64
+  num_radial: 6 #Number of radial basis functions.
+  num_spherical: 7 #Number of spherical harmonics.
+  cutoff: ${datamodule.cutoff}
+  max_num_neighbors: 32
+  int_emb_layers: 3
+  out_layers: 2
+  num_pos_emb: 16
+  dropout: 0.25
+  data_augment_eachlayer: False
+  euler_noise: False
+
+  # num_atoms: 21
+  # num_classes: 703
+
+
+  # int_emb_size: 64 #Size of embedding in the interaction block
+  # basis_emb_size: 8 #Size of basis embedding in the interaction block
+  # out_emb_channels: 256 #Size of embedding in the output block
+  # dropout: 0.25
+
+   
+

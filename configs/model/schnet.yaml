@@ -1,0 +1,15 @@
+_target_: src.models.enzyme_module.EnzymeLitModule
+lr: 0.001
+net:
+  _target_: src.models.components.schnet.SchNet
+  num_atoms: 21
+  num_classes: 7
+  out_dim: 128
+  hidden_channels: 128
+  num_filters: 128
+  num_layers: 6
+  num_gaussians: 50
+  cutoff: ${datamodule.cutoff}
+  max_num_neighbors: 32
+  dropout: 0.25
+  readout: "mean"
