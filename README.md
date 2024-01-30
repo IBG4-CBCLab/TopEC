@@ -2,19 +2,23 @@
 
 [Associated Paper](https://www.google.com)
 
-A enzyme function prediction tool which uses the protein structure to make a EC prediction. This work is created in cooperation with the HelmholtzAI consultants @ Helmholtz Munich. A big thanks to Marie Piraud and Erinc Merdivan for helping us realize this project. 
+TopEC is an enzyme function prediction tool which uses graph neural networks to predict the enzyme class according to [International Union of Biochemistry and Molecular Biology (IUBMB)](https://doi.org/10.1093/nar/gkn582) nomenclature. 
+
+This work is created in cooperation with the HelmholtzAI consultants @ Helmholtz Munich. A big thanks to Marie Piraud and Erinc Merdivan for helping us realize this project. 
+
+Using TopEC you can predict enzyme function from different representations of proteins. See the usage section for more details.
 
 ![alt text][logo]
 
 [logo]: figure/method_overview_GH_version.png "Method overview"
 
 # Table of Contents
-- [General Information][#general]
+- [General Information][#general-information]
 - [Installation](#installation)
 - [Usage](#usage)
 - [License](#license)
 
-# General info
+# General Information
 
 Pytorch Repo for enzyme classification using binding site information for the Juelich Enzyme Prediction Voucher
 Uses pytorch, pytorch-lightning, pytorch-geometric, hydra and tensorboard
@@ -30,7 +34,7 @@ We show the two implemented networks SchNet and DimeNet++ on two approaches:
 - 2) The atom based approach. Here we construct graphs for each atom in the protein such that the network learns from a full atomistic view. 
 
 
-# Setup
+# Installation
 Install pytorch-geometric following instructions below:
 
 https://pytorch-geometric.readthedocs.io/en/latest/notes/installation.html
@@ -40,5 +44,8 @@ Run
 ```
 $ python -m pip install -e .
 ```
-# Running
+# Usage
+
+# License
+
 
