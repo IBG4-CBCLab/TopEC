@@ -13,7 +13,7 @@ Using TopEC you can predict enzyme function from different representations of pr
 [logo]: figure/method_overview_GH_version.png "Method overview"
 
 # Table of Contents
-- [General Information][#general-information]
+- [General Information](#general-information)
 - [Installation](#installation)
 - [Usage](#usage)
 - [License](#license)
