@@ -1,10 +1,15 @@
 # TopEC: Enzyme function prediction from enzyme (pocket) structure
 
-[Associated Paper](www.google.com)
+[Associated Paper](https://www.google.com)
 
-A enzyme function prediction tool which uses the protein structure to make a prediction. This work is created in cooperation with the HelmholtzAI consultants @ Helmholtz Munich. A big thanks to Marie Piraud and Erinc Merdivan for helping us realize this project. 
+A enzyme function prediction tool which uses the protein structure to make a EC prediction. This work is created in cooperation with the HelmholtzAI consultants @ Helmholtz Munich. A big thanks to Marie Piraud and Erinc Merdivan for helping us realize this project. 
+
+![alt text][logo]
+
+[logo]: figures/method_overview_paper_version.png "Method overview"
 
 # Table of Contents
+- [General Information][#general]
 - [Installation](#installation)
 - [Usage](#usage)
 - [License](#license)
