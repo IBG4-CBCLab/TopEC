@@ -6,7 +6,7 @@ A enzyme function prediction tool which uses the protein structure to make a EC 
 
 ![alt text][logo]
 
-[logo]: figure/method_overview_paper_version.png "Method overview"
+[logo]: figure/method_overview_GH_version.png "Method overview"
 
 # Table of Contents
 - [General Information][#general]
