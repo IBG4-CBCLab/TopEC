@@ -6,7 +6,7 @@ TopEC is an enzyme function prediction tool which uses graph neural networks to 
 
 This work is created in cooperation with the HelmholtzAI consultants @ Helmholtz Munich. A big thanks to Marie Piraud and Erinc Merdivan for helping us realize this project. 
 
-Using TopEC you can predict enzyme function from different representations of proteins. See the usage section for more details.
+Using TopEC you can predict enzyme function from different representations of proteins. We offer three methods to design the graph input at atomic and residue resolution. See the usage section for more details.
 
 ![alt text][logo]
 
@@ -20,10 +20,9 @@ Using TopEC you can predict enzyme function from different representations of pr
 
 # General Information
 
-Pytorch Repo for enzyme classification using binding site information for the Juelich Enzyme Prediction Voucher
-Uses pytorch, pytorch-lightning, pytorch-geometric, hydra and tensorboard
+TopEC classifies enzymes using binding site information. The work was developed in cooperation with HelmholtzAI consultants @ Helmholtz Munich. This repository uses [pytorch](https://pytorch.org/get-started/locally/), [pytorch-lightning](https://lightning.ai/pytorch-lightning), [pytorch-geometric](https://pytorch-geometric.readthedocs.io/en/latest/install/installation.html) and [hydra](https://hydra.cc/docs/intro/) with neural network models [SchNet](https://doi.org/10.1063/1.5019779) and [DimeNet++](https://doi.org/10.48550/arXiv.2011.14115)
 
-Task is to classify enzymes according to EC (https://en.wikipedia.org/wiki/Enzyme_Commission_number) using only binding site information instead of full enzyme. 
+The goal is to test enzyme classification ([list of enzyme classes](https://www.enzyme-database.org/)) from structure using only binding sites. With the hypothesis that the area where binding occurs should be sufficient for enzymatic function prediction. 
 
 As input we use the protein structure (.pdb files) and binding site location coordinates. Around these binding site coordinates we construct our localized 3D descriptor for use in the graph neural networks. 
 
@@ -35,17 +34,69 @@ We show the two implemented networks SchNet and DimeNet++ on two approaches:
 
 
 # Installation
-Install pytorch-geometric following instructions below:
 
-https://pytorch-geometric.readthedocs.io/en/latest/notes/installation.html
-Install
+This configuration is tested on a compute node within the [JUWELS-Booster supercomputer](https://apps.fz-juelich.de/jsc/hps/juwels/configuration.html#hardware-configuration-of-the-system-name-booster-module). Installing this on a cluster or server where you have access to a GPU with atleast 40Gb VRAM (Nvidia A100 or newer models) is highly recommended. 
 
-Run
-```
-$ python -m pip install -e .
-```
+
+
+## miniconda
+Install miniconda from [here](https://docs.conda.io/projects/miniconda/en/latest/)
+
+Execute the following commands to create and activate the conda environment.
+```conda create --file environment.yaml```
+
 # Usage
 
+We use hydra to parse configuration files in the ``configs/`` folder. Generally you do not need to make any changes except to check your paths are set correctly. We note down the most important configuration files you might want to change if you want to run your own experiments. For a detailed explanation to work with configuration files see [here](https://hydra.cc/docs/tutorials/basic/your_first_app/config_file/). 
+
+```
+configs/
+├── callbacks           <- Controls the early stopping and metrics configuration.
+├── datamodule          <- Contains a configuration file for every data set we trained and tested. 
+├── experiment          <- Contains an experiment file for each setup we trained and tested.
+├── model               <- Contains the configuration settings for each model
+└── trainer             <- Contains configuration for the trainer.
+create_dataset.yaml
+test.yaml
+train.yaml
+```
+
+## Dataset creation
+
+Make sure the paths in ``configs/create_dataset.yaml`` are pointing towards the folder you store the pdb structures.
+Then execute from command line:
+
+```
+python create_dataset.py
+```
+
+This takes a while as it needs to process many .pdb files
+
+## Running
+
+To run execute:
+
+```
+python train.py experiment=<experiment_01>
+```
+
+This will run the training according to the parameters described in ``configs/experiment/experiment_01.yaml``. If you want to overwrite specific settings you can do this from the command line too.
+
+E.g. here we overwrite the batch_size as defined in the datamodule configuration file:
+
+```
+python train.py experiment=<experiment_01> ++datamodule.batch_size=64
+```
+
+## Running on a slurm cluster
+We offer a submit script to run on a slurm cluster. You might need to change the submission parameters depending on the slurm setup. For examples take a look at
+```
+train.sbatch
+test.sbatch
+```
+
 # License
+![license][logo_license]
 
-
+[logo_license]: figure/by-nc-nd.eu.png "License"
+See LICENSE.MD. Upon publication of the paper we will switch to a CC-BY-NC-SA license.
