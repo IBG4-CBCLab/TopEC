@@ -112,6 +112,8 @@ train.sbatch
 test.sbatch
 ```
 
+If you are running on a slurm cluster and want to perform a sweep over multiple parameters take a look at `sweep_parameters.sh`. This will submit a separate job for every parameter combination.
+
 # License
 ![license][logo_license]
 

@@ -2,7 +2,7 @@ _target_: pytorch_lightning.Trainer
 
 gpus: 1
 
-min_epochs: 50
+min_epochs: 1
 max_epochs: 100
 
 # number of validation steps to execute at the beginning of the training

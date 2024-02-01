@@ -3,6 +3,6 @@ defaults:
 
 gpus: 4
 strategy: ddp
-num_nodes: 4
+num_nodes: 1
 
 # accumulate_grad_batches: 1024

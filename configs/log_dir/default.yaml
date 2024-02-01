@@ -2,7 +2,7 @@
 
 hydra:
   run:
-    dir: logs/experiments/runs/atom_${name}_${datamodule.cut_arg}/${now:%Y-%m-%d}_${now:%H-%M-%S}
+    dir: logs/experiments/runs/${name}/${now:%Y-%m-%d}_${now:%H-%M-%S}
   sweep:
     dir: logs/experiments/multiruns/${name}/${now:%Y-%m-%d}_${now:%H-%M-%S}
     subdir: ${hydra.job.num}

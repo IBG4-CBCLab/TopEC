@@ -45,50 +45,5 @@ hydra:
       datamodule.batch_size: choice(32, 64, 128)
       datamodule.translate_num: interval(0.01, 0.25)
       model.lr: interval(0.0001, 0.2)
-      # model.net.lin1_size: choice(32, 64, 128, 256, 512)
-      # model.net.lin2_size: choice(32, 64, 128, 256, 512)
-      # model.net.lin3_size: choice(32, 64, 128, 256, 512)
       model.net.dropout: choice(0, 0.01, 0.1, 0.25, 0.5)
-      # model.net.out_dim: choice(32, 64, 128, 256)
-      # model.net.hidden_channels: choice(32, 64, 128, 256)
-      # model.net.num_filters: choice(32, 64, 128, 256)
       model.net.num_layers: choice(3, 6, 9)
-      model.net.num_gaussians: choice(25, 50, 100, 150)
-      # datamodule.batch_size: 
-      #   type: categorical
-      #   choices: [32, 64, 128]
-      # datamodule.translate_num: 
-      #   type: float
-      #   low: 0.01
-      #   high: 0.25
-      # model.lr: 
-      #   type: float
-      #   low: 0.0001
-      #   high: 0.2
-      # model.net.lin1_size: 
-      #   type: categorical
-      #   choices: [32, 64, 128, 256, 512] 
-      # model.net.lin2_size: 
-      #   type: categorical
-      #   choices: [32, 64, 128, 256, 512]
-      # model.net.lin3_size: 
-      #   type: categorical
-      #   choices: [32, 64, 128, 256, 512]
-      # model.net.dropout: 
-      #   type: categorical
-      #   choices: [0, 0.01, 0.1, 0.25, 0.5]
-      # model.net.out_dim: 
-      #   type: categorical
-      #   choices: [32, 64, 128, 256]
-      # model.net.hidden_channels: 
-      #   type: categorical
-      #   choices: [32, 64, 128, 256]
-      # model.net.num_filters: 
-      #   type: categorical
-      #   choices: [32, 64, 128, 256]
-      # model.net.num_layers: 
-      #   type: categorical
-      #   choices: [3, 6, 9]
-      # model.net.num_gaussians: 
-      #   type: categorical
-      #   choices: [25, 50, 100, 150]
