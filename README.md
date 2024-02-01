@@ -38,29 +38,34 @@ We show the two implemented networks SchNet and DimeNet++ on two approaches:
 This configuration is tested on a compute node within the [JUWELS-Booster supercomputer](https://apps.fz-juelich.de/jsc/hps/juwels/configuration.html#hardware-configuration-of-the-system-name-booster-module). Installing this on a cluster or server where you have access to a GPU with atleast 40Gb VRAM (Nvidia A100 or newer models) is highly recommended. 
 The setup is tested with python3.9 and pytorch2.1 using CUDA12.1
 
-## miniconda
+### miniconda
 Install miniconda from [here](https://docs.conda.io/projects/miniconda/en/latest/)
 
 Execute the following commands to create and activate the conda environment.
-```conda create --file environment.yaml```
+```
+conda create --file environment.yaml
+```
 
-## Using python venv
+### python virtual environment
+As the code is tested with python3.9 it is recommended to create your python venv on 3.9.
+
 ```
 python3.9 -m venv topec_venv
 
 source topec_venv/bin/activate
+
+pip install -r requirements.txt
 ```
 
-## manual
+### manual
 Install the following list of packages.
-```
-pytorch
-lightning
-torch_geometric
-hydra-core
-pandas
-h5py
-```
+
+* [pytorch](https://pytorch.org/get-started/previous-versions/)
+* [lightning](https://lightning.ai/pytorch-lightning)
+* [torch_geometric](https://pytorch-geometric.readthedocs.io/en/latest/install/installation.html)
+* [hydra-core](https://hydra.cc/docs/intro/)
+* [pandas](https://pandas.pydata.org/docs/getting_started/install.html)
+* [h5py](https://docs.h5py.org/en/stable/build.html)
 
 # Usage
 
@@ -78,7 +83,7 @@ test.yaml
 train.yaml
 ```
 
-## Dataset creation
+* ### Dataset creation
 
 Make sure the paths in ``configs/create_dataset.yaml`` are pointing towards the folder you store the pdb structures.
 Then execute from command line:
@@ -89,7 +94,7 @@ python create_h5dataset.py
 
 This takes a while as it needs to process many .pdb files.
 
-## Running
+* ### Running
 
 To run execute:
 
@@ -105,14 +110,27 @@ E.g. here we overwrite the batch_size as defined in the datamodule configuration
 python train.py experiment=<experiment_01> ++datamodule.batch_size=64
 ```
 
-## Running on a slurm cluster
-We offer a submit script to run on a slurm cluster. You might need to change the submission parameters depending on the slurm setup. For examples take a look at
+* ### Single / Multi-GPU
+
+Depending on the number of GPUs on your system you want to make changes to the trainer. If you are running on a single GPU system you can simply run the code using:
+
 ```
-train.sbatch
-test.sbatch
+python train.py experiment=<experiment_01> trainer=default
 ```
 
-If you are running on a slurm cluster and want to perform a sweep over multiple parameters take a look at `sweep_parameters.sh`. This will submit a separate job for every parameter combination.
+If you are running on multiple GPU's or multiple node's make sure to change `config/trainer/ddp.yaml`. Change `gpus: 4` and `num_nodes: 1` to reflect your setup. Alternatively you can overwrite this on the command line. For example if you want to run on two nodes which each have 8 gpus (2x8 GPUs total):
+
+```
+python train.py experiment=<experiment_01> ++trainer.num_nodes=2 ++trainer.gpus=8
+```
+
+* ### Running on a slurm cluster
+Example slurm submission scripts:
+* `train.sbatch`
+* `test.sbatch`
+
+If you are running on a slurm cluster and submit many jobs with different parameters:
+* `sweep_parameters.sh`
 
 # License
 ![license][logo_license]
