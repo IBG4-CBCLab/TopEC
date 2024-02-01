@@ -44,6 +44,7 @@ Install miniconda from [here](https://docs.conda.io/projects/miniconda/en/latest
 Execute the following commands to create and activate the conda environment.
 ```
 conda create --file environment.yaml
+conda activate topec
 ```
 
 ### python virtual environment
