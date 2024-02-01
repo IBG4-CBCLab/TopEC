@@ -36,14 +36,31 @@ We show the two implemented networks SchNet and DimeNet++ on two approaches:
 # Installation
 
 This configuration is tested on a compute node within the [JUWELS-Booster supercomputer](https://apps.fz-juelich.de/jsc/hps/juwels/configuration.html#hardware-configuration-of-the-system-name-booster-module). Installing this on a cluster or server where you have access to a GPU with atleast 40Gb VRAM (Nvidia A100 or newer models) is highly recommended. 
-
-
+The setup is tested with python3.9 and pytorch2.1 using CUDA12.1
 
 ## miniconda
 Install miniconda from [here](https://docs.conda.io/projects/miniconda/en/latest/)
 
 Execute the following commands to create and activate the conda environment.
 ```conda create --file environment.yaml```
+
+## Using python venv
+```
+python3.9 -m venv topec_venv
+
+source topec_venv/bin/activate
+```
+
+## manual
+Install the following list of packages.
+```
+pytorch
+lightning
+torch_geometric
+hydra-core
+pandas
+h5py
+```
 
 # Usage
 
@@ -67,10 +84,10 @@ Make sure the paths in ``configs/create_dataset.yaml`` are pointing towards the 
 Then execute from command line:
 
 ```
-python create_dataset.py
+python create_h5dataset.py
 ```
 
-This takes a while as it needs to process many .pdb files
+This takes a while as it needs to process many .pdb files.
 
 ## Running
 
