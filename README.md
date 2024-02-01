@@ -4,7 +4,7 @@
 
 TopEC is an enzyme function prediction tool which uses graph neural networks to predict the enzyme class according to [International Union of Biochemistry and Molecular Biology (IUBMB)](https://doi.org/10.1093/nar/gkn582) nomenclature. 
 
-This work is created in cooperation with the HelmholtzAI consultants @ Helmholtz Munich. A big thanks to Marie Piraud and Erinc Merdivan for helping us realize this project. 
+This work is created in cooperation with the [HelmholtzAI consultants @ Helmholtz Munich](https://www.helmholtz.ai/themenmenue/our-research/consultant-teams/helmholtz-ai-consultants-helmholtz-munich/index.html). A big thanks to Marie Piraud and Erinc Merdivan for helping us realize this project. 
 
 Using TopEC you can predict enzyme function from different representations of proteins. We offer three methods to design the graph input at atomic and residue resolution. See the usage section for more details.
 
