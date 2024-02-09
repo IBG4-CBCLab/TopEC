@@ -1,11 +1,13 @@
-import src.preprocessing.hdf5_store_data
+# import src.preprocessing.hdf5_store_data
+from src.preprocessing import hdf5_store_data
 import pandas as pd
 from multiprocessing import Pool
 from omegaconf import DictConfig, OmegaConf
 import os
 import h5py
-from src import utils
-log = logging.getLogger(__name__)
+import hydra
+# from src import utils
+# log = logging.getLogger(__name__)
 
 class create_h5files():
     """
@@ -82,7 +84,7 @@ class create_h5files():
             None
         """
         identifiers = df['enzyme_name'].tolist()
-        file_locations = [f'/path/to/file/{enzyme}' for enzyme in df['enzyme_name']]
+        file_locations = [os.path.join(self.pdb_root, f'{enzyme}') + '.pdb' for enzyme in df['enzyme_name']]
 
         # Sort both lists based on enzyme identifiers
         identifiers_sorted, file_locations_sorted = zip(*sorted(zip(identifiers, file_locations)))
@@ -91,7 +93,7 @@ class create_h5files():
         for identifier, location in zip(identifiers, file_locations):
             assert identifier in location, f"Enzyme identifier {identifier} not found in file location {location}"
         
-        structure_obj = hdf5_store_data.Structure2HDF5(os.path.join(self.h5_root, f'{self.h5_name}_{n_split}'), self.pdbroot, file_type='PDB', warnings=False, experimental=False)
+        structure_obj = hdf5_store_data.Structure2HDF5(os.path.join(self.h5_root, f'{self.h5_name}_{n_split}'), self.pdb_root, file_type='PDB', warnings=False, experimental=False)
         structure_obj.add_list_of_structures(identifiers, file_locations)
     
 
@@ -106,9 +108,9 @@ class create_h5files():
             None
         """
         identifiers = self.csv_file['enzyme_name'].tolist()
-        file_locations = [os.path.join(self.pdb_root, enzyme) for enzyme in self.csv_file ['enzyme_name']]
+        file_locations = [os.path.join(self.pdb_root, enzyme) + '.pdb' for enzyme in self.csv_file ['enzyme_name']]
 
-        structure_obj = hdf5_store_data.Structure2HDF5(os.path.join(self.h5_root, f'{self.h5_name}'), self.pdbroot, file_type='PDB', warnings=False, experimental=False)
+        structure_obj = hdf5_store_data.Structure2HDF5(os.path.join(self.h5_root, f'{self.h5_name}'), self.pdb_root, file_type='PDB', warnings=False, experimental=False)
         structure_obj.add_list_of_structures(identifiers, file_locations)
     
 
@@ -126,17 +128,17 @@ class create_h5files():
         pool = Pool(processes=self.n_cpus)
 
         #obtain splits from enzymes.csv
-        splits = split_information(self.csv_file, self.n_cpus)
+        splits = self.split_information()
         n = range(len(splits))
 
         #construct the h5 files in parallel
-        results = pool.starmap(construct_single_h5, zip([self.h5_root]*len(splits), [self.h5_name]*len(splits), n, splits))
+        # results = pool.starmap(self.construct_chunk_h5, zip(n, splits))
 
         #merge the h5 files. This step takes the longest. 
         #Depending on the size of the dataset it can be quicker to create in a single pass.
         with h5py.File(os.path.join(self.h5_root, self.h5_name), mode='w') as h5fw:
             for h5 in n:
-                h5fr = h5py.File(os.path.join(self.h5_root, f'{self.h5_name}_{h5}.h5', 'r'))
+                h5fr = h5py.File(os.path.join(self.h5_root, f'{self.h5_name}_{h5}'), 'r')
                 for obj in h5fr.keys():
                     if h5fw.__contains__(obj):
                         continue
@@ -156,17 +158,14 @@ class create_h5files():
             None
         """
         if self.n_cpus < 2:
-            creation_singleprocess()
+            self.creation_singleprocess()
         elif self.n_cpus > 1:
-            creation_multiprocessing()
+            self.creation_multiprocessing()
         else:
             raise ValueError('Found an invalid number of cpus. 1 for single thread processing. N for n-multithread processing')
 
 @hydra.main(config_path="configs/", config_name="create_h5dataset.yaml")
 def main(config: DictConfig):
-
-    # Applies optional utilities
-    utils.extras(config)
 
     # Initialize the create_h5files class with configuration parameters
     h5_creator = create_h5files(

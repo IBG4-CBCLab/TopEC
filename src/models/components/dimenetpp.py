@@ -396,12 +396,13 @@ class DimeNet(torch.nn.Module):
     url = ('https://github.com/klicperajo/dimenet/raw/master/pretrained/'
            'dimenet')
 
-    def __init__(self, num_atoms: int, num_classes: int, hidden_channels: int, out_channels: int,
+    def __init__(self, num_classes: int, hidden_channels: int, out_channels: int,
                  num_blocks: int, num_bilinear: int, num_spherical: int,
                  num_radial, cutoff: float = 5.0, max_num_neighbors: int = 32,
                  envelope_exponent: int = 5, num_before_skip: int = 1,
                  num_after_skip: int = 2, num_output_layers: int = 3,
                  readout: str = "mean", dropout: float = 0.0,
+                 resolution: str = "residue", 
                  act: Union[str, Callable] = 'swish'):
         super().__init__()
 
@@ -417,6 +418,13 @@ class DimeNet(torch.nn.Module):
         self.rbf = BesselBasisLayer(num_radial, cutoff, envelope_exponent)
         self.sbf = SphericalBasisLayer(num_spherical, num_radial, cutoff,
                                        envelope_exponent)
+
+        if resolution == "residue":
+            num_atoms = 21
+        elif resolution == "atom":
+            num_atoms = 31
+        else:
+            raise ValueError("resolution should be either 'residue' or 'atom'")
 
         self.emb = EmbeddingBlock(num_atoms, num_radial, hidden_channels, act)
 
@@ -550,7 +558,7 @@ class DimeNetPlusPlus(DimeNet):
            'master/pretrained/dimenet_pp')
 
     def __init__(self, 
-                 num_atoms: int, num_classes: int,
+                 num_classes: int,
                  hidden_channels: int, out_channels: int,
                  num_blocks: int, int_emb_size: int, basis_emb_size: int,
                  out_emb_channels: int, num_spherical: int, num_radial: int,
@@ -558,12 +566,12 @@ class DimeNetPlusPlus(DimeNet):
                  envelope_exponent: int = 5, num_before_skip: int = 1,
                  num_after_skip: int = 2, num_output_layers: int = 3,
                  readout: str = "mean", dropout: float = 0.0,
+                 resolution: str = "residue",
                  act: Union[str, Callable] = 'swish'):
 
         act = activation_resolver(act)
 
         super().__init__(
-            num_atoms=num_atoms,
             num_classes=num_classes,
             hidden_channels=hidden_channels,
             out_channels=out_channels,

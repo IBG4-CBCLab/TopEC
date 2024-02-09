@@ -9,6 +9,7 @@ from omegaconf import DictConfig, OmegaConf
 from pytorch_lightning.utilities import rank_zero_only
 from sklearn.metrics import precision_recall_curve, roc_curve
 import matplotlib.pyplot as plt
+from pytorch_lightning.loggers import Logger
 
 def get_logger(name=__name__) -> logging.Logger:
     """Initializes multi-GPU-friendly python command line logger."""
@@ -109,7 +110,7 @@ def log_hyperparameters(
     datamodule: pl.LightningDataModule,
     trainer: pl.Trainer,
     callbacks: List[pl.Callback],
-    logger: List[pl.loggers.LightningLoggerBase],
+    logger: List[pl.loggers.Logger],
 ) -> None:
     """Controls which config parts are saved by Lightning loggers.
 
@@ -152,7 +153,7 @@ def finish(
     datamodule: pl.LightningDataModule,
     trainer: pl.Trainer,
     callbacks: List[pl.Callback],
-    logger: List[pl.loggers.LightningLoggerBase],
+    logger: List[pl.loggers.Logger],
 ) -> None:
     """Makes sure everything closed properly."""
 

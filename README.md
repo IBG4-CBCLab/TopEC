@@ -64,9 +64,16 @@ Install the following list of packages.
 * [pytorch](https://pytorch.org/get-started/previous-versions/)
 * [lightning](https://lightning.ai/pytorch-lightning)
 * [torch_geometric](https://pytorch-geometric.readthedocs.io/en/latest/install/installation.html)
+* [torch-cluster](https://pytorch-geometric.readthedocs.io/en/latest/install/installation.html#installation-from-wheels)
 * [hydra-core](https://hydra.cc/docs/intro/)
+* [hydra_colorlog](https://hydra.cc/docs/plugins/colorlog/)
 * [pandas](https://pandas.pydata.org/docs/getting_started/install.html)
 * [h5py](https://docs.h5py.org/en/stable/build.html)
+* [biopython](https://biopython.org/wiki/Download)
+* [rich](https://github.com/Textualize/rich)
+* [matplotlib](https://matplotlib.org/stable/)
+* [dotenv](https://github.com/theskumar/python-dotenv)
+* [wandb](https://docs.wandb.ai/quickstart)
 
 # Usage
 
@@ -94,6 +101,10 @@ python create_h5dataset.py
 ```
 
 This takes a while as it needs to process many .pdb files.
+
+* ### Tracking Experiments
+
+For tracking your experiments with wandb follow [this](https://docs.wandb.ai/quickstart) quickstart guide for more information
 
 * ### Running
 

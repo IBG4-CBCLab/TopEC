@@ -26,10 +26,21 @@ class EnzymeLitModule(pl.LightningModule):
     def __init__(
         self,
         net,
-        num_classes: int = 703,
+        num_classes: int = 7,
         class_weights: list = [1, 1, 1, 1, 1, 1, 1],
         lr: float = 0.001,
         n_gpus: int = 1,
+        cutoff: int = 10,
+        out_dim: int = 128,
+        hidden_channels: int = 128,
+        num_filters: int = 128,
+        num_layers: int = 6,
+        num_gaussians: int = 50,
+        max_num_neighbors: int = 32,
+        num_interactions: int = 6,
+        dropout: int = 0.25,
+        readout: str = "mean",
+        resolution: str = 'residue',
     ):
 
         super().__init__()
@@ -54,18 +65,18 @@ class EnzymeLitModule(pl.LightningModule):
         self.criterion = torch.nn.CrossEntropyLoss(weight=self.class_weights)
 
         self.train_macroACC = Accuracy(
-            num_classes=num_classes, average="macro"
+            task='multiclass', num_classes=num_classes, average="macro"
         )
         self.val_macroACC = Accuracy(
-            num_classes=num_classes, average="macro"
+            task='multiclass', num_classes=num_classes, average="macro"
         )
         self.test_macroACC = Accuracy(
-            num_classes=num_classes, average="macro"
+            task='multiclass', num_classes=num_classes, average="macro"
         )
 
-        self.train_ACC = Accuracy(num_classes=num_classes, average="micro")
-        self.val_ACC = Accuracy(num_classes=num_classes, average="micro")
-        self.test_ACC = Accuracy(num_classes=num_classes, average="micro")
+        self.train_ACC = Accuracy(task='multiclass', num_classes=num_classes, average="micro")
+        self.val_ACC = Accuracy(task='multiclass', num_classes=num_classes, average="micro")
+        self.test_ACC = Accuracy(task='multiclass', num_classes=num_classes, average="micro")
 
         
         # for logging best so far validation accuracy
@@ -107,9 +118,9 @@ class EnzymeLitModule(pl.LightningModule):
        
         return {"loss": loss, "preds": preds, "targets": targets}
 
-    def training_epoch_end(self, outputs: List[Any]):
-        # `outputs` is a list of dicts returned from `training_step()`
-        pass
+    # def training_epoch_end(self, outputs: List[Any]):
+    #     # `outputs` is a list of dicts returned from `training_step()`
+    #     pass
 
 
     def validation_step(self, batch: Any, batch_idx: int):
@@ -123,7 +134,7 @@ class EnzymeLitModule(pl.LightningModule):
         
         return {"loss": loss, "preds": preds, "targets": targets}
 
-    def validation_epoch_end(self, outputs: List[Any]):
+    def on_validation_epoch_end(self):#, outputs: List[Any]):
         acc = self.val_ACC.compute()  # get val accuracy from current epoch
         self.val_acc_best.update(acc)
         self.log("val/acc_best", self.val_acc_best.compute(), on_epoch=True, prog_bar=True)
@@ -144,7 +155,7 @@ class EnzymeLitModule(pl.LightningModule):
         
         return {"loss": loss, "preds": preds, "targets": targets}
 
-    def test_epoch_end(self, outputs: List[Any]):
+    def on_test_epoch_end(self, outputs: List[Any]):
         
         acc = self.test_ACC.compute()  # get test accuracy from current epoch
         macroacc = self.test_macroACC.compute()  # get test accuracy from current epoch

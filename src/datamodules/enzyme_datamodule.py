@@ -13,14 +13,14 @@ log = logging.getLogger(__name__)
 class EnzymeDataModule(pl.LightningDataModule):
     def __init__(
         self,
-        data_dir: str = "../../data/processed/all_enzymes/",
+        h5_file: str = "../../data/h5/all_enzymes/",
+        ff19SB: str = "../preprocessing/ff19SB_map.csv",
+        resolution: str = "residue",
         train_csv: str = "",
         val_csv: str = "",
         test_csv: str = "",
         num_atoms: int = 21,
-        level: str = "residue",
         box_mode: str = "count",
-        useHierarchical: bool = True,
         cut_arg: int = 10,
         cutoff: float = 10.0,
         oversample: bool = False,
@@ -57,14 +57,13 @@ class EnzymeDataModule(pl.LightningDataModule):
         # this line allows to access init params with 'self.hparams' attribute
         self.save_hyperparameters(logger=False)
         
-        self.data_dir = data_dir
 
         self.batch_size = batch_size
         self.num_workers = num_workers
 
-        self.num_atoms = num_atoms
-        self.level = level
-        self.useHierarchical = useHierarchical
+        self.ff19SB = ff19SB
+        self.resolution = resolution
+        self.h5_file = h5_file
 
         self.translate_num = translate_num
         self.test_translate_num = test_translate_num
@@ -77,13 +76,7 @@ class EnzymeDataModule(pl.LightningDataModule):
         self.test_csv = test_csv
         train_class_data = pd.read_csv(self.train_csv, sep=",")
         
-        if useHierarchical:    
-            
-            nSamples = (train_class_data.hierarchical.value_counts().sort_index().tolist())
-        
-        else:
-            
-            nSamples = train_class_data.mainclass.value_counts().sort_index().tolist()
+        nSamples = (train_class_data.uniq_designation.value_counts().sort_index().tolist())
         
         if oversample:
             self.normedWeights = [1 - (x / sum(nSamples)) for x in nSamples]
@@ -93,49 +86,45 @@ class EnzymeDataModule(pl.LightningDataModule):
     def setup(self, stage: Optional[str] = None):
 
         self.train_dataset = EnzymeDataset(
-            data_dir = self.data_dir,
+            h5_file = self.h5_file,
+            resolution = self.resolution,
+            ff19SB = self.ff19SB,
             binding_site_csv = self.train_csv,
-            num_atoms = self.num_atoms,
-            level = self.level,
             box_mode = self.box_mode,
-            useHierarchical = self.useHierarchical,
             cut_arg = self.cut_arg,
             transform = T.Compose([T.RandomTranslate(self.translate_num),T.RadiusGraph(self.cutoff),T.RemoveIsolatedNodes()]) 
         )
         self.val_dataset = EnzymeDataset(
-            data_dir = self.data_dir,
+            h5_file = self.h5_file,
+            resolution = self.resolution,
+            ff19SB = self.ff19SB,
             binding_site_csv = self.val_csv,
-            num_atoms = self.num_atoms,
-            level = self.level,
             box_mode = self.box_mode,
-            useHierarchical = self.useHierarchical,
             cut_arg = self.cut_arg,
             transform = T.Compose([T.RadiusGraph(self.cutoff),T.RemoveIsolatedNodes()]) 
         )
         self.test_dataset = EnzymeDataset(
-            data_dir = self.data_dir,
+            h5_file = self.h5_file,
+            resolution = self.resolution,
+            ff19SB = self.ff19SB,
             binding_site_csv = self.test_csv,
-            num_atoms = self.num_atoms,
-            level = self.level,
             box_mode = self.box_mode,
-            useHierarchical = self.useHierarchical,
             cut_arg = self.cut_arg,
             transform = T.Compose([T.RadiusGraph(self.cutoff),T.RemoveIsolatedNodes()]) 
         )
         
         self.augmented_test_dataset = EnzymeDataset(
-            data_dir = self.data_dir,
+            h5_file = self.h5_file,
+            resolution = self.resolution,
+            ff19SB = self.ff19SB,
             binding_site_csv = self.test_csv,
-            num_atoms = self.num_atoms,
-            level = self.level,
             box_mode = self.box_mode,
-            useHierarchical = self.useHierarchical,
             cut_arg = self.cut_arg,
             transform = T.Compose([T.RandomTranslate(self.test_translate_num),T.RadiusGraph(self.cutoff),T.RemoveIsolatedNodes()]) 
         )
 
         log.info(
-            f"Binding Site Cutting with : {self.box_mode} cut_arg: {self.cut_arg} with {self.level}"
+            f"Binding Site Cutting with : {self.box_mode} cut_arg: {self.cut_arg} with {self.resolution}"
         )
         log.info("====================")
         

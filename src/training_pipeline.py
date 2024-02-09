@@ -1,6 +1,5 @@
 import os
 from typing import List, Optional
-from fvcore.nn import FlopCountAnalysis
 
 import hydra
 from omegaconf import DictConfig
@@ -12,7 +11,7 @@ from pytorch_lightning import (
     seed_everything,
 )
 import torch
-from pytorch_lightning.loggers import LightningLoggerBase
+from pytorch_lightning.loggers import Logger
 from src import utils
 
 log = utils.get_logger(__name__)
@@ -46,7 +45,7 @@ def train(config: DictConfig) -> Optional[float]:
 
     # Init lightning model
     log.info(f"Instantiating model <{config.model._target_}>")
-    model: LightningModule = hydra.utils.instantiate(config.model, class_weights=datamodule.normedWeights, n_gpus=config.trainer.gpus)
+    model: LightningModule = hydra.utils.instantiate(config.model, class_weights=datamodule.normedWeights, n_gpus=config.trainer.devices)
 
     # Init lightning callbacks
     callbacks: List[Callback] = []
@@ -57,7 +56,7 @@ def train(config: DictConfig) -> Optional[float]:
                 callbacks.append(hydra.utils.instantiate(cb_conf))
 
     # Init lightning loggers
-    logger: List[LightningLoggerBase] = []
+    logger: List[Logger] = []
     if "logger" in config:
         for _, lg_conf in config.logger.items():
             if "_target_" in lg_conf:
@@ -91,10 +90,6 @@ def train(config: DictConfig) -> Optional[float]:
 
     size_all_mb = (param_size + buffer_size) / 1024**2
     log.info(f"model size: {size_all_mb:.3f}MB")
-
-    # log.info(f"flop counts")
-    # flops = FlopCountAnalysis(model, torch.Tensor(1, 100, 100, 31))
-    # log.info(f"flop count: {flops.total()}")
 
     # Train the model
     if config.get("train"):

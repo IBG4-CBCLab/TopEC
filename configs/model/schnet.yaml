@@ -2,7 +2,7 @@ _target_: src.models.enzyme_module.EnzymeLitModule
 lr: 0.001
 net:
   _target_: src.models.components.schnet.SchNet
-  num_atoms: 21
+  resolution: residue
   num_classes: 7
   out_dim: 128
   hidden_channels: 128

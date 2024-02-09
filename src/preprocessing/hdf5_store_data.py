@@ -379,10 +379,11 @@ class Structure2HDF5(HDF5File):
             for identifier, structure_file in zip(list_identifier, list_structure_file):
                 try:
                     file.create_group(f'{identifier}', 'S')
-                    pos_data = self.structure_topology(identifier, structure_file)
                 except: #determine error type for group already exists
                     log.info(f'{identifier} already exists in the data structure')
                     continue
+
+                pos_data = self.structure_topology(identifier, structure_file)
 
                 file.create_group(f'{identifier}/structure', 'S')
 

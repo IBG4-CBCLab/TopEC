@@ -8,25 +8,25 @@ defaults:
   - override hydra/hydra_logging: colorlog
   - override hydra/job_logging: colorlog
 
-
 work_dir: ${hydra:runtime.cwd}
 
 # Configuration options for creating HDF5 datasets
-create_h5dataset:
-  # Path to the CSV file containing enzyme information
-  csv_file: ${work_dir}/data/csv/full_enzyme_set.csv
+name: create_dataset
 
-  # Root directory containing PDB files
-  pdb_root: "/p/scratch/vsk33/vanderweg/topec_data/all_structures"
+# Path to the CSV file containing enzyme information
+csv_file: ${work_dir}/data/csv/all_enzymes.csv
 
-  # Root directory where HDF5 files will be stored
-  h5_root: "/p/project/vsk33/vanderweg/TopEC/data/h5"
+# Root directory containing PDB files
+pdb_root: "/p/scratch/vsk33/vanderweg/topec_data/all_structures"
 
-  # Name of the HDF5 file to be created
-  h5_name: "all_enzymes.h5"
+# Root directory where HDF5 files will be stored
+h5_root: "/p/project/vsk33/vanderweg/TopEC/data/h5"
 
-  # Number of CPUs for parallel processing
-  n_cpus: 64  # Adjust this number according to your system configuration
+# Name of the HDF5 file to be created
+h5_name: "all_enzymes.h5"
+
+# Number of CPUs for parallel processing
+n_cpus: 64  # Adjust this number according to your system configuration
 
 # pretty print config at the start of the run using Rich library
 print_config: True

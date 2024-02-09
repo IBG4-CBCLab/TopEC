@@ -44,7 +44,7 @@ class SchNet(torch.nn.Module):
 
     def __init__(
         self,
-        num_atoms: int = 21,
+        resolution: str = "residue",
         num_classes: int = 97,
         out_dim: int = 128,
         hidden_channels: int = 128,
@@ -67,7 +67,10 @@ class SchNet(torch.nn.Module):
         self.readout = readout
         self.out_dim = out_dim
         #self.embedding = Embedding(num_atoms, hidden_channels)
-        self.embedding = nn.Linear(num_atoms, hidden_channels)        
+        if resolution == 'residue':
+            self.embedding = nn.Linear(21, hidden_channels)        
+        elif resolution == 'atom':
+            self.embedding = nn.Linear(31, hidden_channels) 
         self.distance_expansion = GaussianSmearing(0.0, cutoff, num_gaussians)
         #self.num_classes = num_classes
 

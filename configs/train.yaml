@@ -6,7 +6,7 @@ defaults:
   - datamodule: enzyme.yaml
   - model: enzyme.yaml
   - callbacks: default.yaml
-  - logger: tensorboard.yaml # set logger here or use command line (e.g. `python train.py logger=tensorboard`)
+  - logger: wandb.yaml # set logger here or use command line (e.g. `python train.py logger=tensorboard`)
   - trainer: ddp.yaml
   - log_dir: default.yaml
 
@@ -33,10 +33,10 @@ defaults:
 # https://hydra.cc/docs/next/tutorials/basic/running_your_app/working_directory
 original_work_dir: ${hydra:runtime.cwd}
 
+work_dir: ${hydra:runtime.cwd}
+
 # path to folder with data
 #data_dir: ${original_work_dir}/data/processed/all_enzymes/
-data_dir: /p/project/vsk33/vanderweg/enzyme_prediction_gold_test/data/processed/all_enzymes/
-csv_dir: ${original_work_dir}/data/split_csv/
 # pretty print config at the start of the run using Rich library
 print_config: True
 

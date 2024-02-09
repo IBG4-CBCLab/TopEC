@@ -1,7 +1,7 @@
 defaults:
   - default.yaml
 
-gpus: 4
+devices: 4
 num_nodes: 1
 strategy: ddp
 
