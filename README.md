@@ -1,6 +1,6 @@
 # TopEC: Enzyme function prediction from enzyme (pocket) structure
 
-[Associated Paper](https://www.google.com)
+[TopEC: Improved classification of enzyme function by a localized 3D protein descriptor and 3D Graph Neural Networks](https://www.biorxiv.org/content/10.1101/2024.01.31.578271v1)
 
 TopEC is an enzyme function prediction tool which uses graph neural networks to predict the enzyme class according to [International Union of Biochemistry and Molecular Biology (IUBMB)](https://doi.org/10.1093/nar/gkn582) nomenclature. 
 
@@ -93,6 +93,10 @@ train.yaml
 
 * ### Dataset creation
 
+Obtain the PDB files [here](https://fz-juelich.sciebo.de/s/7cOPiXC0iqlh3c9).
+
+We are working on uploading a single .h5 containing all the data that can be immediatly used to train your networks.
+
 Make sure the paths in ``configs/create_dataset.yaml`` are pointing towards the folder you store the pdb structures.
 Then execute from command line:
 
@@ -105,6 +109,14 @@ This takes a while as it needs to process many .pdb files.
 * ### Tracking Experiments
 
 For tracking your experiments with wandb follow [this](https://docs.wandb.ai/quickstart) quickstart guide for more information
+
+* ### Resuming from checkpoints
+
+To resume a run from checkpoint:
+
+```
+python train.py experiment=<experiment_01> ++trainer.ckpt_path=/path/to/checkpoint
+```
 
 * ### Running
 
