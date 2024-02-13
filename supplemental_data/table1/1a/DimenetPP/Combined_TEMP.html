@@ -1,0 +1,1058 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>PyCM Report</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="description" content="PyCM is a multi-class confusion matrix library written in Python. http://www.pycm.ir">
+<meta name="og:title" content="PyCM Report">
+<meta name="og:description" content="PyCM is a multi-class confusion matrix library written in Python. http://www.pycm.ir">
+<meta name="og:url" content="http://www.pycm.ir">
+<meta property="og:image" content="http://www.pycm.ir/images/logo-og.png">
+<meta name="twitter:image:src" content="http://www.pycm.ir/images/logo-og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PyCM Report">
+<meta name="twitter:description" content="PyCM is a multi-class confusion matrix library written in Python. http://www.pycm.ir">
+</head>
+<body>
+<h1 style="border-bottom:1px solid black;text-align:center;">PyCM Report</h1>
+<h2>Dataset Type : </h2>
+<ul>
+<li>Multi-Class Classification</li>
+<li>Imbalanced</li>
+</ul>
+<p><span style="color:red;">Note 1</span> : Recommended statistics for this type of classification highlighted in <span style="color :aqua;">aqua</span></p>
+<p><span style="color:red;">Note 2</span> : The recommender system assumes that the input is the result of classification over the whole data rather than just a part of it.
+If the confusion matrix is the result of test data classification, the recommendation is not valid.</p>
+<h2>Confusion Matrix : </h2>
+<table>
+<tr style="text-align:center;">
+<td>Actual</td>
+<td>Predict
+<table style="border:1px solid black;border-collapse: collapse;height:56em;width:56em;">
+<tr style="text-align:center;">
+<td></td>
+<td style="border:1px solid black;padding:10px;height:7em;width:7em;">0</td>
+<td style="border:1px solid black;padding:10px;height:7em;width:7em;">1</td>
+<td style="border:1px solid black;padding:10px;height:7em;width:7em;">2</td>
+<td style="border:1px solid black;padding:10px;height:7em;width:7em;">3</td>
+<td style="border:1px solid black;padding:10px;height:7em;width:7em;">4</td>
+<td style="border:1px solid black;padding:10px;height:7em;width:7em;">5</td>
+<td style="border:1px solid black;padding:10px;height:7em;width:7em;">6</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:10px;height:7em;width:7em;">0</td>
+<td style="background-color:rgb(4,68,68);color:white;padding:10px;height:7em;width:7em;">472</td>
+<td style="background-color:rgb(149,213,213);color:black;padding:10px;height:7em;width:7em;">106</td>
+<td style="background-color:rgb(179,243,243);color:black;padding:10px;height:7em;width:7em;">31</td>
+<td style="background-color:rgb(184,248,248);color:black;padding:10px;height:7em;width:7em;">20</td>
+<td style="background-color:rgb(190,254,254);color:black;padding:10px;height:7em;width:7em;">3</td>
+<td style="background-color:rgb(191,255,255);color:black;padding:10px;height:7em;width:7em;">0</td>
+<td style="background-color:rgb(188,252,252);color:black;padding:10px;height:7em;width:7em;">9</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:10px;height:7em;width:7em;">1</td>
+<td style="background-color:rgb(182,246,246);color:black;padding:10px;height:7em;width:7em;">35</td>
+<td style="background-color:rgb(0,46,46);color:white;padding:10px;height:7em;width:7em;">813</td>
+<td style="background-color:rgb(172,236,236);color:black;padding:10px;height:7em;width:7em;">76</td>
+<td style="background-color:rgb(184,248,248);color:black;padding:10px;height:7em;width:7em;">30</td>
+<td style="background-color:rgb(189,253,253);color:black;padding:10px;height:7em;width:7em;">9</td>
+<td style="background-color:rgb(190,254,254);color:black;padding:10px;height:7em;width:7em;">6</td>
+<td style="background-color:rgb(187,251,251);color:black;padding:10px;height:7em;width:7em;">18</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:10px;height:7em;width:7em;">2</td>
+<td style="background-color:rgb(185,249,249);color:black;padding:10px;height:7em;width:7em;">24</td>
+<td style="background-color:rgb(157,221,221);color:black;padding:10px;height:7em;width:7em;">120</td>
+<td style="background-color:rgb(0,52,52);color:white;padding:10px;height:7em;width:7em;">709</td>
+<td style="background-color:rgb(188,252,252);color:black;padding:10px;height:7em;width:7em;">11</td>
+<td style="background-color:rgb(191,255,255);color:black;padding:10px;height:7em;width:7em;">2</td>
+<td style="background-color:rgb(190,254,254);color:black;padding:10px;height:7em;width:7em;">6</td>
+<td style="background-color:rgb(187,251,251);color:black;padding:10px;height:7em;width:7em;">14</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:10px;height:7em;width:7em;">3</td>
+<td style="background-color:rgb(167,231,231);color:black;padding:10px;height:7em;width:7em;">19</td>
+<td style="background-color:rgb(134,198,198);color:black;padding:10px;height:7em;width:7em;">45</td>
+<td style="background-color:rgb(162,226,226);color:black;padding:10px;height:7em;width:7em;">23</td>
+<td style="background-color:rgb(54,118,118);color:white;padding:10px;height:7em;width:7em;">107</td>
+<td style="background-color:rgb(189,253,253);color:black;padding:10px;height:7em;width:7em;">2</td>
+<td style="background-color:rgb(190,254,254);color:black;padding:10px;height:7em;width:7em;">1</td>
+<td style="background-color:rgb(190,254,254);color:black;padding:10px;height:7em;width:7em;">1</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:10px;height:7em;width:7em;">4</td>
+<td style="background-color:rgb(178,242,242);color:black;padding:10px;height:7em;width:7em;">6</td>
+<td style="background-color:rgb(124,188,188);color:white;padding:10px;height:7em;width:7em;">29</td>
+<td style="background-color:rgb(175,239,239);color:black;padding:10px;height:7em;width:7em;">7</td>
+<td style="background-color:rgb(185,249,249);color:black;padding:10px;height:7em;width:7em;">3</td>
+<td style="background-color:rgb(52,116,116);color:white;padding:10px;height:7em;width:7em;">60</td>
+<td style="background-color:rgb(187,251,251);color:black;padding:10px;height:7em;width:7em;">2</td>
+<td style="background-color:rgb(187,251,251);color:black;padding:10px;height:7em;width:7em;">2</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:10px;height:7em;width:7em;">5</td>
+<td style="background-color:rgb(180,244,244);color:black;padding:10px;height:7em;width:7em;">4</td>
+<td style="background-color:rgb(143,207,207);color:black;padding:10px;height:7em;width:7em;">17</td>
+<td style="background-color:rgb(177,241,241);color:black;padding:10px;height:7em;width:7em;">5</td>
+<td style="background-color:rgb(186,250,250);color:black;padding:10px;height:7em;width:7em;">2</td>
+<td style="background-color:rgb(186,250,250);color:black;padding:10px;height:7em;width:7em;">2</td>
+<td style="background-color:rgb(44,108,108);color:white;padding:10px;height:7em;width:7em;">52</td>
+<td style="background-color:rgb(172,236,236);color:black;padding:10px;height:7em;width:7em;">7</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:10px;height:7em;width:7em;">6</td>
+<td style="background-color:rgb(167,231,231);color:black;padding:10px;height:7em;width:7em;">16</td>
+<td style="background-color:rgb(131,195,195);color:black;padding:10px;height:7em;width:7em;">40</td>
+<td style="background-color:rgb(128,192,192);color:black;padding:10px;height:7em;width:7em;">42</td>
+<td style="background-color:rgb(182,246,246);color:black;padding:10px;height:7em;width:7em;">6</td>
+<td style="background-color:rgb(190,254,254);color:black;padding:10px;height:7em;width:7em;">1</td>
+<td style="background-color:rgb(190,254,254);color:black;padding:10px;height:7em;width:7em;">1</td>
+<td style="background-color:rgb(98,162,162);color:white;padding:10px;height:7em;width:7em;">62</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<h2>Overall Statistics : </h2>
+<table style="border:1px solid black;border-collapse: collapse;">
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#95%25-CI" style="text-decoration:None;">95% CI</a></td>
+<td style="border:1px solid black;padding:4px;">(0.7236,0.75463)</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#ACC_Macro" style="text-decoration:None;">ACC Macro</a></td>
+<td style="border:1px solid black;padding:4px;">0.92546</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#ARI-(Adjusted-Rand-index)" style="text-decoration:None;">ARI</a></td>
+<td style="border:1px solid black;padding:4px;">0.46906</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#AUNP" style="text-decoration:None;">AUNP</a></td>
+<td style="border:1px solid black;padding:4px;">0.82419</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#AUNU" style="text-decoration:None;">AUNU</a></td>
+<td style="border:1px solid black;padding:4px;">0.78949</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#Bangdiwala's-B" style="text-decoration:None;">Bangdiwala B</a></td>
+<td style="border:1px solid black;padding:4px;">0.59054</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#Bennett's-S" style="text-decoration:None;">Bennett S</a></td>
+<td style="border:1px solid black;padding:4px;">0.69564</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#CBA-(Class-balance-accuracy)" style="text-decoration:None;">CBA</a></td>
+<td style="border:1px solid black;padding:4px;">0.60991</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#CSI-(Classification-success-index)" style="text-decoration:None;">CSI</a></td>
+<td style="border:1px solid black;padding:4px;">0.34048</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#Chi-squared" style="text-decoration:None;">Chi-Squared</a></td>
+<td style="border:1px solid black;padding:4px;">7131.37162</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#Chi-squared-DF" style="text-decoration:None;">Chi-Squared DF</a></td>
+<td style="border:1px solid black;padding:4px;">36</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#Conditional-entropy" style="text-decoration:None;">Conditional Entropy</a></td>
+<td style="border:1px solid black;padding:4px;">1.24221</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#Cramer's-V" style="text-decoration:None;">Cramer V</a></td>
+<td style="border:1px solid black;padding:4px;">0.62141</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#Cross-entropy" style="text-decoration:None;">Cross Entropy</a></td>
+<td style="border:1px solid black;padding:4px;">2.33527</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#F1_Macro" style="text-decoration:None;">F1 Macro</a></td>
+<td style="border:1px solid black;padding:4px;">0.66232</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#F1_Micro" style="text-decoration:None;">F1 Micro</a></td>
+<td style="border:1px solid black;padding:4px;">0.73912</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#FNR_Macro" style="text-decoration:None;">FNR Macro</a></td>
+<td style="border:1px solid black;padding:4px;">0.37079</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#FNR_Micro" style="text-decoration:None;">FNR Micro</a></td>
+<td style="border:1px solid black;padding:4px;">0.26088</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#FPR_Macro" style="text-decoration:None;">FPR Macro</a></td>
+<td style="border:1px solid black;padding:4px;">0.05023</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#FPR_Micro" style="text-decoration:None;">FPR Micro</a></td>
+<td style="border:1px solid black;padding:4px;">0.04348</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#Gwet's-AC1" style="text-decoration:None;">Gwet AC1</a></td>
+<td style="border:1px solid black;padding:4px;">0.70201</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#Hamming-loss" style="text-decoration:None;">Hamming Loss</a></td>
+<td style="border:1px solid black;padding:4px;">0.26088</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#Joint-entropy" style="text-decoration:None;">Joint Entropy</a></td>
+<td style="border:1px solid black;padding:4px;">3.55904</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#Kullback-Leibler-divergence" style="text-decoration:None;">KL Divergence</a></td>
+<td style="border:1px solid black;padding:4px;">0.01843</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:aqua;"><a href="http://www.pycm.ir/doc/index.html#Kappa" style="text-decoration:None;">Kappa</a></td>
+<td style="border:1px solid black;padding:4px;">0.65138</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#Kappa-95%25-CI" style="text-decoration:None;">Kappa 95% CI</a></td>
+<td style="border:1px solid black;padding:4px;">(0.63065,0.67211)</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#Kappa-no-prevalence" style="text-decoration:None;">Kappa No Prevalence</a></td>
+<td style="border:1px solid black;padding:4px;">0.47823</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#Kappa-standard-error" style="text-decoration:None;">Kappa Standard Error</a></td>
+<td style="border:1px solid black;padding:4px;">0.01058</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#Kappa-unbiased" style="text-decoration:None;">Kappa Unbiased</a></td>
+<td style="border:1px solid black;padding:4px;">0.65086</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#Krippendorff's-alpha" style="text-decoration:None;">Krippendorff Alpha</a></td>
+<td style="border:1px solid black;padding:4px;">0.65091</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#Goodman-&-Kruskal's-lambda-A" style="text-decoration:None;">Lambda A</a></td>
+<td style="border:1px solid black;padding:4px;">0.61597</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#Goodman-&-Kruskal's-lambda-B" style="text-decoration:None;">Lambda B</a></td>
+<td style="border:1px solid black;padding:4px;">0.57914</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#Mutual-information" style="text-decoration:None;">Mutual Information</a></td>
+<td style="border:1px solid black;padding:4px;">0.92947</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#NIR-(No-information-rate)" style="text-decoration:None;">NIR</a></td>
+<td style="border:1px solid black;padding:4px;">0.32066</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#Overall_ACC" style="text-decoration:None;">Overall ACC</a></td>
+<td style="border:1px solid black;padding:4px;">0.73912</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:aqua;"><a href="http://www.pycm.ir/doc/index.html#Overall_CEN" style="text-decoration:None;">Overall CEN</a></td>
+<td style="border:1px solid black;padding:4px;">0.35065</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:aqua;"><a href="http://www.pycm.ir/doc/index.html#Overall_J" style="text-decoration:None;">Overall J</a></td>
+<td style="border:1px solid black;padding:4px;">(3.54447,0.50635)</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:aqua;"><a href="http://www.pycm.ir/doc/index.html#Overall_MCC" style="text-decoration:None;">Overall MCC</a></td>
+<td style="border:1px solid black;padding:4px;">0.65348</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:aqua;"><a href="http://www.pycm.ir/doc/index.html#Overall_MCEN" style="text-decoration:None;">Overall MCEN</a></td>
+<td style="border:1px solid black;padding:4px;">0.48261</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#Overall_RACC" style="text-decoration:None;">Overall RACC</a></td>
+<td style="border:1px solid black;padding:4px;">0.25166</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#Overall_RACCU" style="text-decoration:None;">Overall RACCU</a></td>
+<td style="border:1px solid black;padding:4px;">0.25279</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#P-Value" style="text-decoration:None;">P-Value</a></td>
+<td style="border:1px solid black;padding:4px;">None</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#PPV_Macro" style="text-decoration:None;">PPV Macro</a></td>
+<td style="border:1px solid black;padding:4px;">0.71127</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#PPV_Micro" style="text-decoration:None;">PPV Micro</a></td>
+<td style="border:1px solid black;padding:4px;">0.73912</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#Pearson's-C" style="text-decoration:None;">Pearson C</a></td>
+<td style="border:1px solid black;padding:4px;">0.83577</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#Phi-squared" style="text-decoration:None;">Phi-Squared</a></td>
+<td style="border:1px solid black;padding:4px;">2.31688</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#RCI-(Relative-classifier-information)" style="text-decoration:None;">RCI</a></td>
+<td style="border:1px solid black;padding:4px;">0.40118</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#RR-(Global-performance-index)" style="text-decoration:None;">RR</a></td>
+<td style="border:1px solid black;padding:4px;">439.71429</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#Reference-entropy" style="text-decoration:None;">Reference Entropy</a></td>
+<td style="border:1px solid black;padding:4px;">2.31684</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#Response-entropy" style="text-decoration:None;">Response Entropy</a></td>
+<td style="border:1px solid black;padding:4px;">2.17168</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:aqua;"><a href="http://www.pycm.ir/doc/index.html#SOA1-(Landis-&-Koch's-benchmark)" style="text-decoration:None;">SOA1(Landis & Koch)</a></td>
+<td style="border:1px solid black;padding:4px;background-color:LawnGreen;">Substantial</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:aqua;"><a href="http://www.pycm.ir/doc/index.html#SOA2-(Fleiss'-benchmark)" style="text-decoration:None;">SOA2(Fleiss)</a></td>
+<td style="border:1px solid black;padding:4px;background-color:LawnGreen;">Intermediate to Good</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:aqua;"><a href="http://www.pycm.ir/doc/index.html#SOA3-(Altman's-benchmark)" style="text-decoration:None;">SOA3(Altman)</a></td>
+<td style="border:1px solid black;padding:4px;background-color:LawnGreen;">Good</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:aqua;"><a href="http://www.pycm.ir/doc/index.html#SOA4-(Cicchetti's-benchmark)" style="text-decoration:None;">SOA4(Cicchetti)</a></td>
+<td style="border:1px solid black;padding:4px;background-color:LawnGreen;">Good</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#SOA5-(Cramer's-benchmark)" style="text-decoration:None;">SOA5(Cramer)</a></td>
+<td style="border:1px solid black;padding:4px;background-color:LawnGreen;">Strong</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:aqua;"><a href="http://www.pycm.ir/doc/index.html#SOA6-(Matthews's-benchmark)" style="text-decoration:None;">SOA6(Matthews)</a></td>
+<td style="border:1px solid black;padding:4px;background-color:Yellow;">Moderate</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#Scott's-Pi" style="text-decoration:None;">Scott PI</a></td>
+<td style="border:1px solid black;padding:4px;">0.65086</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#Standard-error" style="text-decoration:None;">Standard Error</a></td>
+<td style="border:1px solid black;padding:4px;">0.00791</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#TNR_Macro" style="text-decoration:None;">TNR Macro</a></td>
+<td style="border:1px solid black;padding:4px;">0.94977</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#TNR_Micro" style="text-decoration:None;">TNR Micro</a></td>
+<td style="border:1px solid black;padding:4px;">0.95652</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#TPR_Macro" style="text-decoration:None;">TPR Macro</a></td>
+<td style="border:1px solid black;padding:4px;">0.62921</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#TPR_Micro" style="text-decoration:None;">TPR Micro</a></td>
+<td style="border:1px solid black;padding:4px;">0.73912</td>
+</tr>
+<tr style="text-align:center;">
+<td style="border:1px solid black;padding:4px;text-align:left;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#Zero-one-loss" style="text-decoration:None;">Zero-one Loss</a></td>
+<td style="border:1px solid black;padding:4px;">803</td>
+</tr>
+</table>
+<h2>Class Statistics : </h2>
+<table style="border:1px solid black;border-collapse: collapse;">
+<tr style="text-align:center;">
+<td>Class</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">1</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">2</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">3</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">4</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">5</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">6</td>
+<td>Description</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#ACC-(Accuracy)" style="text-decoration:None;">ACC</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.91131</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.82749</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.88272</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.94704</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.97791</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.98278</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.94899</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Accuracy</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#AGF-(Adjusted-F-score)" style="text-decoration:None;">AGF</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.83934</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.84157</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.8566</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.73102</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.75773</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.77879</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.61823</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Adjusted F-score</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#AGM-(Adjusted-G-mean)" style="text-decoration:None;">AGM</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.89162</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.82761</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.88109</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.8463</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.86429</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.87678</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.78697</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Adjusted geometric mean</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#AM-(Automatic/Manual)" style="text-decoration:None;">AM</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">-65</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">183</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">7</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">-19</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">-30</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">-21</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">-55</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Difference between automatic and manual classification</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#AUC-(Area-under-the-ROC-curve)" style="text-decoration:None;">AUC</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.84684</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.82649</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.85814</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.7577</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.77203</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.78946</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.67576</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Area under the ROC curve</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#AUCI-(AUC-value-interpretation)" style="text-decoration:None;">AUCI</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:LawnGreen;">Very Good</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:LawnGreen;">Very Good</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:LawnGreen;">Very Good</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:YellowGreen;">Good</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:YellowGreen;">Good</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:YellowGreen;">Good</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:Orange;">Fair</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">AUC value interpretation</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#AUPR-(Area-under-the-PR-curve)" style="text-decoration:None;">AUPR</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.7779</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.75929</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.79709</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.56908</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.65498</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.67449</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.45886</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Area under the PR curve</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#BCD-(Bray-Curtis-dissimilarity)" style="text-decoration:None;">BCD</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.01056</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.02973</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.00114</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.00309</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.00487</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.00341</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.00893</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Bray-Curtis dissimilarity</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#BM-(Bookmaker-informedness)" style="text-decoration:None;">BM</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.69367</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.65298</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.71628</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.5154</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.54406</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.57892</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.35152</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Informedness or bookmaker informedness</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:aqua;"><a href="http://www.pycm.ir/doc/index.html#CEN-(Confusion-entropy)" style="text-decoration:None;">CEN</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.31029</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.35533</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.2916</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.49364</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.42974</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.42792</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.57545</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Confusion entropy</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#DOR-(Diagnostic-odds-ratio)" style="text-decoration:None;">DOR</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">62.65225</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">22.69458</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">43.71383</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">45.85714</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">190.11815</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">261.14189</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">32.78912</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Diagnostic odds ratio</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:aqua;"><a href="http://www.pycm.ir/doc/index.html#DP-(Discriminant-power)" style="text-decoration:None;">DP</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.9907</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.74756</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.90452</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.91598</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">1.25649</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">1.33249</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.83567</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Discriminant power</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:aqua;"><a href="http://www.pycm.ir/doc/index.html#DPI-(Discriminant-power-interpretation)" style="text-decoration:None;">DPI</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:Red;">Poor</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:Red;">Poor</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:Red;">Poor</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:Red;">Poor</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:Orange;">Limited</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:Orange;">Limited</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:Red;">Poor</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Discriminant power interpretation</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#ERR-(Error-rate)" style="text-decoration:None;">ERR</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.08869</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.17251</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.11728</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.05296</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.02209</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.01722</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.05101</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Error rate</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#FBeta-Score" style="text-decoration:None;">F0.5</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.80136</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.71731</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.7952</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.58534</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.70588</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.72022</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.5</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">F0.5 score</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#FBeta-Score" style="text-decoration:None;">F1</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.77568</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.75382</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.79708</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.56764</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.6383</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.66242</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.44128</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">F1 score - harmonic mean of precision and sensitivity</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#FBeta-Score" style="text-decoration:None;">F2</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.75159</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.79426</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.79896</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.55098</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.58252</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.61321</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.3949</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">F2 score</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#FDR-(False-discovery-rate)" style="text-decoration:None;">FDR</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.18056</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.30513</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.20605</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.40223</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.24051</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.23529</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.45133</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">False discovery rate</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#FN-(False-negative)" style="text-decoration:None;">FN</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">169</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">174</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">177</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">91</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">49</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">37</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">106</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">False negative/miss/type 2 error</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#FNR-(False-negative-rate)" style="text-decoration:None;">FNR</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.26365</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.17629</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.19977</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.4596</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.44954</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.41573</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.63095</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Miss rate or false negative rate</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#FOR-(False-omission-rate)" style="text-decoration:None;">FOR</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.06755</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.09119</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.08101</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.03139</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.01634</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.01229</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.03575</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">False omission rate</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#FP-(False-positive)" style="text-decoration:None;">FP</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">104</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">357</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">184</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">72</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">19</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">16</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">51</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">False positive/type 1 error/false alarm</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#FPR-(False-positive-rate)" style="text-decoration:None;">FPR</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.04268</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.17073</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.08394</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.025</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.0064</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.00535</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.01753</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Fall-out or false positive rate</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:aqua;"><a href="http://www.pycm.ir/doc/index.html#G-(G-measure)" style="text-decoration:None;">G</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.77679</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.75655</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.79708</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.56836</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.64658</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.66843</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.44998</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">G-measure geometric mean of precision and sensitivity</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:aqua;"><a href="http://www.pycm.ir/doc/index.html#GI-(Gini-index)" style="text-decoration:None;">GI</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.69367</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.65298</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.71628</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.5154</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.54406</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.57892</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.35152</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Gini index</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#GM-(G-mean)" style="text-decoration:None;">GM</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.8396</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.82648</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.85619</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.72587</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.73955</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.76233</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.60215</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">G-mean geometric mean of specificity and sensitivity</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#IBA-(Index-of-balanced-accuracy)" style="text-decoration:None;">IBA</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.54915</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.67928</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.64814</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.29791</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.30457</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.34265</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.14016</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Index of balanced accuracy</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#ICSI-(Individual-classification-success-index)" style="text-decoration:None;">ICSI</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.55579</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.51858</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.59418</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.13817</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.30995</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.34898</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">-0.08228</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Individual classification success index</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#IS-(Information-score)" style="text-decoration:None;">IS</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">1.97632</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">1.11569</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">1.46374</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">3.21607</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">4.4227</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">4.72502</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">3.32948</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Information score</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:aqua;"><a href="http://www.pycm.ir/doc/index.html#J-(Jaccard-index)" style="text-decoration:None;">J</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.63356</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.60491</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.66262</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.3963</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.46875</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.49524</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.28311</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Jaccard index</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#LS-(Lift-score)" style="text-decoration:None;">LS</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">3.93487</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">2.16699</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">2.75822</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">9.29253</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">21.44699</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">26.44679</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">10.05247</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Lift score</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:aqua;"><a href="http://www.pycm.ir/doc/index.html#MCC-(Matthews-correlation-coefficient)" style="text-decoration:None;">MCC</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.7222</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.62784</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.71461</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.54029</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.63586</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.65999</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.42462</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Matthews correlation coefficient</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:aqua;"><a href="http://www.pycm.ir/doc/index.html#MCCI-(Matthews-correlation-coefficient-interpretation)" style="text-decoration:None;">MCCI</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:LawnGreen;">Strong</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:Yellow;">Moderate</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:LawnGreen;">Strong</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:Yellow;">Moderate</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:Yellow;">Moderate</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:Yellow;">Moderate</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:Orange;">Weak</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Matthews correlation coefficient interpretation</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:aqua;"><a href="http://www.pycm.ir/doc/index.html#MCEN-(Modified-confusion-entropy)" style="text-decoration:None;">MCEN</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.4345</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.49506</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.41579</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.60817</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.54899</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.55812</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.66645</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Modified confusion entropy</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#MK-(Markedness)" style="text-decoration:None;">MK</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.7519</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.60368</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.71295</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.56638</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.74315</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.75241</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.51292</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Markedness</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#N-(Condition-negative)" style="text-decoration:None;">N</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">2437</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">2091</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">2192</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">2880</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">2969</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">2989</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">2910</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Condition negative</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#NLR-(Negative-likelihood-ratio)" style="text-decoration:None;">NLR</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.2754</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.21259</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.21808</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.47138</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.45244</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.41797</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.64221</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Negative likelihood ratio</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#NLRI-(Negative-likelihood-ratio-interpretation)" style="text-decoration:None;">NLRI</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:Orange;">Poor</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:Orange;">Poor</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:Orange;">Poor</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:Orange;">Poor</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:Orange;">Poor</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:Orange;">Poor</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:Red;">Negligible</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Negative likelihood ratio interpretation</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#NPV-(Negative-predictive-value)" style="text-decoration:None;">NPV</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.93245</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.90881</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.91899</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.96861</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.98366</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.98771</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.96425</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Negative predictive value</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#OC-(Overlap-coefficient)" style="text-decoration:None;">OC</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.81944</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.82371</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.80023</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.59777</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.75949</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.76471</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.54867</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Overlap coefficient</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#OOC-(Otsuka-Ochiai-coefficient)" style="text-decoration:None;">OOC</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.77679</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.75655</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.79708</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.56836</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.64658</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.66843</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.44998</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Otsuka-Ochiai coefficient</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:aqua;"><a href="http://www.pycm.ir/doc/index.html#OP-(Optimized-precision)" style="text-decoration:None;">OP</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.78084</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.82412</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.81523</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.66026</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.69091</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.72287</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.49511</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Optimized precision</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#P-(Condition-positive)" style="text-decoration:None;">P</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">641</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">987</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">886</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">198</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">109</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">89</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">168</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Condition positive or support</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#PLR-(Positive-likelihood-ratio)" style="text-decoration:None;">PLR</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">17.25465</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">4.82458</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">9.53312</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">21.61616</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">86.01642</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">109.14888</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">21.05742</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Positive likelihood ratio</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#PLRI-(Positive-likelihood-ratio-interpretation)" style="text-decoration:None;">PLRI</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:Green;">Good</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:Orange;">Poor</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:Yellow;">Fair</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:Green;">Good</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:Green;">Good</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:Green;">Good</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:Green;">Good</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Positive likelihood ratio interpretation</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#POP-(Population)" style="text-decoration:None;">POP</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">3078</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">3078</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">3078</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">3078</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">3078</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">3078</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">3078</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Population</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#PPV-(Positive-predictive-value)" style="text-decoration:None;">PPV</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.81944</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.69487</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.79395</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.59777</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.75949</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.76471</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.54867</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Precision or positive predictive value</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#PRE-(Prevalence)" style="text-decoration:None;">PRE</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.20825</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.32066</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.28785</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.06433</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.03541</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.02891</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.05458</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Prevalence</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#Q-(Yule's-Q)" style="text-decoration:None;">Q</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.96858</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.91559</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.95527</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.95732</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.98954</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.99237</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.94081</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Yule Q - coefficient of colligation</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#QI-(Yule's-Q-interpretation)" style="text-decoration:None;">QI</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:Green;">Strong</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:Green;">Strong</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:Green;">Strong</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:Green;">Strong</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:Green;">Strong</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:Green;">Strong</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:Green;">Strong</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Yule Q interpretation</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#RACC-(Random-accuracy)" style="text-decoration:None;">RACC</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.03897</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.12189</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.08351</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.00374</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.00091</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.00064</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.002</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Random accuracy</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#RACCU-(Random-accuracy-unbiased)" style="text-decoration:None;">RACCU</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.03908</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.12277</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.08351</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.00375</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.00093</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.00065</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.00208</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Random accuracy unbiased</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#TN-(True-negative)" style="text-decoration:None;">TN</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">2333</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">1734</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">2008</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">2808</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">2950</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">2973</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">2859</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">True negative/correct rejection</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#TNR-(True-negative-rate)" style="text-decoration:None;">TNR</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.95732</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.82927</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.91606</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.975</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.9936</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.99465</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.98247</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Specificity or true negative rate</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#TON-(Test-outcome-negative)" style="text-decoration:None;">TON</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">2502</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">1908</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">2185</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">2899</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">2999</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">3010</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">2965</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Test outcome negative</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#TOP-(Test-outcome-positive)" style="text-decoration:None;">TOP</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">576</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">1170</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">893</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">179</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">79</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">68</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">113</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Test outcome positive</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#TP-(True-positive)" style="text-decoration:None;">TP</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">472</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">813</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">709</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">107</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">60</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">52</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">62</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">True positive/hit</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#TPR-(True-positive-rate)" style="text-decoration:None;">TPR</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.73635</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.82371</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.80023</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.5404</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.55046</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.58427</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.36905</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Sensitivity, recall, hit rate, or true positive rate</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#Y-(Youden-index)" style="text-decoration:None;">Y</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.69367</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.65298</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.71628</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.5154</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.54406</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.57892</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.35152</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Youden index</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#dInd-(Distance-index)" style="text-decoration:None;">dInd</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.26708</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.24541</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.21669</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.46028</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.44959</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.41576</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.6312</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Distance index</td>
+</tr>
+<tr style="text-align:center;border:1px solid black;border-collapse: collapse;">
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;background-color:transparent;"><a href="http://www.pycm.ir/doc/index.html#sInd-(Similarity-index)" style="text-decoration:None;">sInd</a></td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.81114</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.82647</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.84677</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.67454</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.68209</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.70601</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;">0.55368</td>
+<td style="border:1px solid black;padding:4px;border-collapse: collapse;text-align:left;">Similarity index</td>
+</tr>
+</table>
+<p style="text-align:center;border-top:1px solid black;">Generated By <a href="http://www.pycm.ir" style="text-decoration:none;color:red;">PyCM</a> Version 3.3</p>
+</body>
+</html>
