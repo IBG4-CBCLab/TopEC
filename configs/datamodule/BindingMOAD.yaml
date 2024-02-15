@@ -1,0 +1,39 @@
+_target_: src.datamodules.enzyme_datamodule.EnzymeDataModule
+
+#location of storage and mapping files
+h5_file: ${work_dir}/data/h5/all_enzymes.h5
+ff19SB: ${work_dir}/src/preprocessing/ff19SB_map.csv
+
+#switch resolution between 'residue' and 'atom'
+#cut arg determines the R or N of cutting.
+#box_mode determines the mode of box generation. 
+resolution: residue
+cut_arg: 100
+box_mode: count
+
+#location of csv files 
+#TEMP SPLIT
+train_csv: ${work_dir}/data/csv/BindingMoad_TEMP_train.csv
+val_csv: ${work_dir}/data/csv/BindingMoad_TEMP_val.csv
+test_csv: ${work_dir}/data/csv/BindingMoad_TEMP_test.csv
+
+#FOLD SPLIT
+# train_csv: ${work_dir}/data/csv/BindingMoad_FOLD_train.csv
+# val_csv: ${work_dir}/data/csv/BindingMoad_FOLD_val.csv
+# test_csv: ${work_dir}/data/csv/BindingMoad_FOLD_test.csv
+
+
+#set hierarchical true for hierarchical classification. 
+#If false defaults to predicting mainclasses only
+useHierarchical: False
+
+#network arguments
+batch_size: 32
+num_workers: 4
+translate_num: 0.05 # Augmenation of x, y, z coordinates
+augment_cut_arg: 0
+cutoff: 10.0
+oversample: False
+
+
+

@@ -19,7 +19,7 @@ class EnzymeDataModule(pl.LightningDataModule):
         train_csv: str = "",
         val_csv: str = "",
         test_csv: str = "",
-        num_atoms: int = 21,
+        useHierarchical: bool = True,
         box_mode: str = "count",
         cut_arg: int = 10,
         cutoff: float = 10.0,
@@ -38,7 +38,6 @@ class EnzymeDataModule(pl.LightningDataModule):
             root_dir: Root directory where the dataset is saved. Defaults to "".
             data_dir (str, optional): File path where entire dataset and labels.pt are saved, each entry in pt file is dense numpy array of point cloud coordinates and corresponding features. Defaults to "../../data/processed/".
             train_csv, val_csv, test_csv (str, optional): csv files to use. Defaults to "".
-            num_atoms (int): Number of atoms/residues in dataset 
             level (str): If 'residue' only "CA" will be used to represent the residue and if "atom" all atoms in given radius will be used
             box_mode (str): How to cut the pocket of enzyme. 'distance' will use all atoms within given distance and 'count' will cut all atoms expanding from pocket center until the "cut_arg" is reached
             useHierarchical (bool): If True uses hierarchical EC commision number. Defaults to True.
@@ -74,6 +73,7 @@ class EnzymeDataModule(pl.LightningDataModule):
         self.train_csv = train_csv
         self.val_csv = val_csv
         self.test_csv = test_csv
+        self.useHierarchical = useHierarchical
         train_class_data = pd.read_csv(self.train_csv, sep=",")
         
         nSamples = (train_class_data.uniq_designation.value_counts().sort_index().tolist())
@@ -92,6 +92,7 @@ class EnzymeDataModule(pl.LightningDataModule):
             binding_site_csv = self.train_csv,
             box_mode = self.box_mode,
             cut_arg = self.cut_arg,
+            useHierarchical = self.useHierarchical,
             transform = T.Compose([T.RandomTranslate(self.translate_num),T.RadiusGraph(self.cutoff),T.RemoveIsolatedNodes()]) 
         )
         self.val_dataset = EnzymeDataset(
@@ -101,6 +102,7 @@ class EnzymeDataModule(pl.LightningDataModule):
             binding_site_csv = self.val_csv,
             box_mode = self.box_mode,
             cut_arg = self.cut_arg,
+            useHierarchical = self.useHierarchical,
             transform = T.Compose([T.RadiusGraph(self.cutoff),T.RemoveIsolatedNodes()]) 
         )
         self.test_dataset = EnzymeDataset(
@@ -110,6 +112,7 @@ class EnzymeDataModule(pl.LightningDataModule):
             binding_site_csv = self.test_csv,
             box_mode = self.box_mode,
             cut_arg = self.cut_arg,
+            useHierarchical = self.useHierarchical,
             transform = T.Compose([T.RadiusGraph(self.cutoff),T.RemoveIsolatedNodes()]) 
         )
         
@@ -120,6 +123,7 @@ class EnzymeDataModule(pl.LightningDataModule):
             binding_site_csv = self.test_csv,
             box_mode = self.box_mode,
             cut_arg = self.cut_arg,
+            useHierarchical = self.useHierarchical,
             transform = T.Compose([T.RandomTranslate(self.test_translate_num),T.RadiusGraph(self.cutoff),T.RemoveIsolatedNodes()]) 
         )
 

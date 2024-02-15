@@ -1,0 +1,24 @@
+#@package _global_
+
+# to execute this experiment run:
+# python run.py +experiment=exp_example_full
+
+# specify here default training configuration
+defaults:
+
+  - override /datamodule: BindingMOAD
+  - override /trainer: ddp
+  - override /model: dimenet
+
+seed: 5555
+
+datamodule:
+    batch_size: 16
+    num_workers: 3
+    translate_num: 0.25
+
+model:
+  net:
+    resolution: residue
+    num_classes: 703
+  num_classes: 703

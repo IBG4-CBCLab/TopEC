@@ -4,7 +4,7 @@ lr: 0.001
 net:
   _target_: src.models.components.dimenetpp.DimeNetPlusPlus
   resolution: residue
-  num_classes: 7
+  num_classes: 96
   out_channels: 128 #Size of each output sample.
   hidden_channels: 128
   num_spherical: 7 #Number of spherical harmonics.

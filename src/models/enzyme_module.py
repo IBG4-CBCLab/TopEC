@@ -26,7 +26,7 @@ class EnzymeLitModule(pl.LightningModule):
     def __init__(
         self,
         net,
-        num_classes: int = 7,
+        num_classes: int = 96,
         class_weights: list = [1, 1, 1, 1, 1, 1, 1],
         lr: float = 0.001,
         n_gpus: int = 1,
@@ -52,6 +52,7 @@ class EnzymeLitModule(pl.LightningModule):
         self.net = net
         
         self.num_classes = num_classes
+        print('num classes = ', num_classes)
         self.lr = lr
        
         if n_gpus > 1:
@@ -155,7 +156,7 @@ class EnzymeLitModule(pl.LightningModule):
         
         return {"loss": loss, "preds": preds, "targets": targets}
 
-    def on_test_epoch_end(self, outputs: List[Any]):
+    def on_test_epoch_end(self):
         
         acc = self.test_ACC.compute()  # get test accuracy from current epoch
         macroacc = self.test_macroACC.compute()  # get test accuracy from current epoch

@@ -1,11 +1,11 @@
 defaults:
   - default.yaml
 
-devices: 4
+devices: 2
 num_nodes: 1
 strategy: ddp
 
 min_epochs: 1
-max_epochs: 100
+max_epochs: 1
 
 accumulate_grad_batches: 512

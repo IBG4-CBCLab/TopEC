@@ -1,0 +1,27 @@
+#@package _global_
+
+# to execute this experiment run:
+# python run.py +experiment=exp_example_full
+
+# specify here default training configuration
+defaults:
+
+  - override /datamodule: AF703
+  - override /trainer: ddp
+  - override /model: schnet
+
+seed: 5555
+
+datamodule:
+    batch_size: 128
+    num_workers: 3
+    translate_num: 0.25
+
+model:
+  net:
+    resolution: residue
+    #change num_classes to 7 for mainclass
+    num_classes: 826
+  num_classes: 826
+
+
