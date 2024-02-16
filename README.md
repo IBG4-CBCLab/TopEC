@@ -14,6 +14,7 @@ Using TopEC you can predict enzyme function from different representations of pr
 
 # Table of Contents
 - [General Information](#general-information)
+- [Requirements](#requirements)
 - [Installation](#installation)
 - [Usage](#usage)
 - [License](#license)
@@ -32,34 +33,12 @@ We show the two implemented networks SchNet and DimeNet++ on two approaches:
 
 - 2) The atom based approach. Here we construct graphs for each atom in the protein such that the network learns from a full atomistic view. 
 
+# Requirements
 
-# Installation
-
-This configuration is tested on a compute node within the [JUWELS-Booster supercomputer](https://apps.fz-juelich.de/jsc/hps/juwels/configuration.html#hardware-configuration-of-the-system-name-booster-module). Installing this on a cluster or server where you have access to a GPU with atleast 40Gb VRAM (Nvidia A100 or newer models) is highly recommended. 
+This configuration is tested on compute nodes within the [JUWELS-Booster supercomputer](https://apps.fz-juelich.de/jsc/hps/juwels/configuration.html#hardware-configuration-of-the-system-name-booster-module) and [JURECA supercomputer](https://apps.fz-juelich.de/jsc/hps/jureca/index.html). Installing this on a cluster or server where you have access to a GPU with atleast 40Gb VRAM (Nvidia A100 or newer models) is highly recommended. 
 The setup is tested with python3.9 and pytorch2.1 using CUDA12.1
 
-### miniconda
-Install miniconda from [here](https://docs.conda.io/projects/miniconda/en/latest/)
-
-Execute the following commands to create and activate the conda environment.
-```
-conda create --file environment.yaml
-conda activate topec
-```
-
-### python virtual environment
-As the code is tested with python3.9 it is recommended to create your python venv on 3.9.
-
-```
-python3.9 -m venv topec_venv
-
-source topec_venv/bin/activate
-
-pip install -r requirements.txt
-```
-
-### manual
-Install the following list of packages.
+All required software can be installed with pip (see [Installation](#installation)). Alternatively you can manually install the following packages:
 
 * [pytorch](https://pytorch.org/get-started/previous-versions/)
 * [lightning](https://lightning.ai/pytorch-lightning)
@@ -75,27 +54,27 @@ Install the following list of packages.
 * [dotenv](https://github.com/theskumar/python-dotenv)
 * [wandb](https://docs.wandb.ai/quickstart)
 
-# Usage
 
-We use hydra to parse configuration files in the ``configs/`` folder. Generally you do not need to make any changes except to check your paths are set correctly. We note down the most important configuration files you might want to change if you want to run your own experiments. For a detailed explanation to work with configuration files see [here](https://hydra.cc/docs/tutorials/basic/your_first_app/config_file/). 
+# Installation
+
+### python virtual environment
+As the code is tested with python3.9 it is recommended to create your python venv on 3.9.
 
 ```
-configs/
-├── callbacks           <- Controls the early stopping and metrics configuration.
-├── datamodule          <- Contains a configuration file for every data set we trained and tested. 
-├── experiment          <- Contains an experiment file for each setup we trained and tested.
-├── model               <- Contains the configuration settings for each model
-└── trainer             <- Contains configuration for the trainer.
-create_dataset.yaml
-test.yaml
-train.yaml
+python3.9 -m venv topec_venv
+
+source topec_venv/bin/activate
+
+pip install -r requirements.txt
 ```
 
-* ### Dataset creation
+### Dataset creation
 
 Obtain the PDB files [here](https://fz-juelich.sciebo.de/s/7cOPiXC0iqlh3c9).
 
 We are working on uploading a single .h5 containing all the data that can be immediatly used to train your networks.
+
+**16/02: We tested a single h5 database file for all datasets. Unfortunately we are dealing with a slow upload speed. Complete dataset file should be available from 18/02. This removes the need to recreate the dataset and you can immediatly start training on the datasets**
 
 Make sure the paths in ``configs/create_dataset.yaml`` are pointing towards the folder you store the pdb structures.
 Then execute from command line:
@@ -104,13 +83,30 @@ Then execute from command line:
 python create_h5dataset.py
 ```
 
-This takes a while as it needs to process many .pdb files.
+Using a compute node with 48 cores can do this in roughly 5 hours. Using a single core the dataset creation can take up to a day. The dataset creation code takes into account experimental and computationally generated structures. 
 
-* ### Tracking Experiments
+# Usage
 
-For tracking your experiments with wandb follow [this](https://docs.wandb.ai/quickstart) quickstart guide for more information
+We use hydra to parse configuration files in the ``configs/`` folder. Generally you do not need to make any changes except to check your paths are set correctly. We note down the most important configuration files you might want to change if you want to run your own experiments. For a detailed explanation to work with configuration files see [here](https://hydra.cc/docs/tutorials/basic/your_first_app/config_file/). 
 
-* ### Resuming from checkpoints
+```
+configs/
+├── callbacks           <- Controls the early stopping and metrics configuration.
+├── datamodule          <- Contains a configuration file for every dataset we trained and tested. 
+├── experiment          <- Contains an experiment file for each setup we trained and tested.
+├── model               <- Contains the configuration settings for each model
+└── trainer             <- Contains configuration for the trainer.
+create_dataset.yaml
+test.yaml
+train.yaml
+```
+
+### Tracking Experiments
+
+For tracking your experiments with wandb follow [this](https://docs.wandb.ai/quickstart) quickstart guide for more information.
+By default the runs are stored locally in the `./wandb` folder.
+
+### Resuming from checkpoints
 
 To resume a run from checkpoint:
 
@@ -118,7 +114,7 @@ To resume a run from checkpoint:
 python train.py experiment=<experiment_01> ++trainer.ckpt_path=/path/to/checkpoint
 ```
 
-* ### Running
+### Training
 
 To run execute:
 
@@ -126,7 +122,9 @@ To run execute:
 python train.py experiment=<experiment_01>
 ```
 
-This will run the training according to the parameters described in ``configs/experiment/experiment_01.yaml``. If you want to overwrite specific settings you can do this from the command line too.
+This will run the training according to the parameters described in ``configs/experiment/experiment_01.yaml``. A log folder will be generated under ``logs/`` containing the network checkpoints.
+
+If you want to overwrite specific settings you can do this from the command line too.
 
 E.g. here we overwrite the batch_size as defined in the datamodule configuration file:
 
@@ -134,7 +132,9 @@ E.g. here we overwrite the batch_size as defined in the datamodule configuration
 python train.py experiment=<experiment_01> ++datamodule.batch_size=64
 ```
 
-* ### Single / Multi-GPU
+Using a JUWELS-BOOSTER compute node with 4x A100 (40GB) we can perform a single training epoch on roughly 
+
+### Single / Multi-GPU
 
 Depending on the number of GPUs on your system you want to make changes to the trainer. If you are running on a single GPU system you can simply run the code using:
 
@@ -148,13 +148,23 @@ If you are running on multiple GPU's or multiple node's make sure to change `con
 python train.py experiment=<experiment_01> ++trainer.num_nodes=2 ++trainer.gpus=8
 ```
 
-* ### Running on a slurm cluster
+### Running on a slurm cluster
 Example slurm submission scripts:
 * `train.sbatch`
 * `test.sbatch`
 
 If you are running on a slurm cluster and submit many jobs with different parameters:
 * `sweep_parameters.sh`
+
+### Testing
+
+To test the network execute the following:
+
+```
+python test.py experiment=<experiment_file> ++trainer.ckpt_path=/path/to/checkpoint
+```
+
+This will generate the evaluation reports under ``logs/evaluations`` containing a PyCM report for the test and validation sets. Furthermore, we automatically generate pr curves and realibility diagrams for the tested network.
 
 # License
 ![license][logo_license]
