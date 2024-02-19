@@ -72,10 +72,6 @@ pip install -r requirements.txt
 
 Obtain the PDB files [here](https://fz-juelich.sciebo.de/s/7cOPiXC0iqlh3c9).
 
-We are working on uploading a single .h5 containing all the data that can be immediatly used to train your networks.
-
-**16/02: We tested a single h5 database file for all datasets. Unfortunately we are dealing with a slow upload speed. Complete dataset file should be available from 18/02. This removes the need to recreate the dataset and you can immediatly start training on the datasets**
-
 Make sure the paths in ``configs/create_dataset.yaml`` are pointing towards the folder you store the pdb structures.
 Then execute from command line:
 
@@ -84,6 +80,8 @@ python create_h5dataset.py
 ```
 
 Using a compute node with 48 cores can do this in roughly 5 hours. Using a single core the dataset creation can take up to a day. The dataset creation code takes into account experimental and computationally generated structures. 
+
+**Alternatively you can obtain the H5 file [here](https://fz-juelich.sciebo.de/s/zvnTIm0TdJmPwdd) and skip the creation of the h5 file**
 
 # Usage
 
