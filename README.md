@@ -53,6 +53,7 @@ All required software can be installed with pip (see [Installation](#installatio
 * [matplotlib](https://matplotlib.org/stable/)
 * [dotenv](https://github.com/theskumar/python-dotenv)
 * [wandb](https://docs.wandb.ai/quickstart)
+* [pycm](https://www.pycm.io/)
 
 
 # Installation
@@ -63,9 +64,10 @@ As the code is tested with python3.9 it is recommended to create your python ven
 ```
 python3.9 -m venv topec_venv
 
+pip install -r requirements.txt
+
 source topec_venv/bin/activate
 
-pip install -r requirements.txt
 ```
 
 ### Dataset creation
@@ -159,7 +161,7 @@ If you are running on a slurm cluster and submit many jobs with different parame
 To test the network execute the following:
 
 ```
-python test.py experiment=<experiment_file> ++trainer.ckpt_path=/path/to/checkpoint
+python test.py trainer=test experiment=<experiment_file> ckpt_path=/path/to/checkpoint
 ```
 
 This will generate the evaluation reports under ``logs/evaluations`` containing a PyCM report for the test and validation sets. Furthermore, we automatically generate pr curves and realibility diagrams for the tested network.

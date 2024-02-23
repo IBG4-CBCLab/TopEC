@@ -10,10 +10,10 @@ from src import utils
 log = utils.get_logger(__name__)
 from pycm import ConfusionMatrix
 
-import tensorflow as tf
-import tensorboard as tb
+# import tensorflow as tf
+# import tensorboard as tb
 from torchmetrics.functional import accuracy, f1_score
-tf.io.gfile = tb.compat.tensorflow_stub.io.gfile
+# tf.io.gfile = tb.compat.tensorflow_stub.io.gfile
 
 def write_results(
     labels,
@@ -40,12 +40,14 @@ def write_results(
         torch.tensor(labels),
         num_classes=num_classes,
         average="micro",
+        task='multiclass',
     )
     acc_macro = accuracy(
         torch.tensor(preds),
         torch.tensor(labels),
         num_classes=num_classes,
         average="macro",
+        task='multiclass',
     )
 
     f1_micro = f1_score(
@@ -53,12 +55,14 @@ def write_results(
         torch.tensor(labels),
         num_classes=num_classes,
         average="micro",
+        task='multiclass',
     )
     f1_macro = f1_score(
         torch.tensor(preds),
         torch.tensor(labels),
         num_classes=num_classes,
         average="macro",
+        task='multiclass',
     )
 
     with open(pycm_report_dir + "results.txt", "a+") as f:
@@ -124,6 +128,11 @@ def evaluate(config: DictConfig, trainer: Trainer, model: LightningModule, datam
     # print(f'test_names: {test_names}')
     # print(f'len test_names: {len(test_names)}')
 
+    # print(f'prediction shape: {predictions.shape}')
+    # print(f'predictions: {predictions}')
+    # print(f'predictions1: {predictions[0][0]}')
+    # print(f'predictions2: {len(predictions[1][0][1])}')
+
     val_preds = []
     val_confidences = []
     val_conf2d = []
@@ -136,15 +145,14 @@ def evaluate(config: DictConfig, trainer: Trainer, model: LightningModule, datam
         val_confidences.extend(confidences.tolist())
         val_conf2d.extend(conf2d)
 
-    embedding_labels = [[i, j] for i, j in zip(val_labels, val_names)]
+    # embedding_labels = [[i, j] for i, j in zip(val_labels, val_names)]
 
-
-    logger[0].experiment.add_embedding(
-        np.vstack(val_conf2d),
-        metadata=embedding_labels,
-        tag="validation embedding",
-        metadata_header=["class", "enzyme"],
-    ) 
+    # logger.experiment.add_embedding(
+    #     np.vstack(val_conf2d),
+    #     metadata=embedding_labels,
+    #     tag="validation embedding",
+    #     metadata_header=["class", "enzyme"],
+    # ) 
 
     test_preds = []
     test_confidences = []
@@ -168,14 +176,14 @@ def evaluate(config: DictConfig, trainer: Trainer, model: LightningModule, datam
     # print(f'predictions[1]: {predictions[1]}')
     # print(f'len predictions[1]: {len(predictions[1])}')
 
-    embedding_labels = [[i, j] for i, j in zip(test_labels, test_names)]
+    # embedding_labels = [[i, j] for i, j in zip(test_labels, test_names)]
 
-    logger[0].experiment.add_embedding(
-        np.vstack(test_conf2d),
-        metadata=embedding_labels,
-        tag="test embedding",
-        metadata_header=["class", "enzyme"],
-    )
+    # logger.experiment.add_embedding(
+    #     np.vstack(test_conf2d),
+    #     metadata=embedding_labels,
+    #     tag="test embedding",
+    #     metadata_header=["class", "enzyme"],
+    # )
 
     log.info(f"Validation labels size = {len(val_labels)}")
     log.info(f"Validation preds size= {len(val_preds)}")
@@ -236,6 +244,9 @@ def test(config: DictConfig) -> None:
     log.info(f"Instantiating model <{config.model._target_}>")
     model: LightningModule = hydra.utils.instantiate(config.model)
 
+    checkpoint = torch.load(config.ckpt_path)
+    model.load_state_dict(checkpoint['state_dict'])
+
     # Init lightning loggers
     logger: List[Logger] = []
     if "logger" in config:
@@ -246,18 +257,12 @@ def test(config: DictConfig) -> None:
 
     # Init lightning trainer
     log.info(f"Instantiating trainer <{config.trainer._target_}>")
-    trainer: Trainer = hydra.utils.instantiate(config.trainer, logger=logger)
+    trainer: Trainer = hydra.utils.instantiate(config.trainer, logger=logger)#, ckpt_path=config.ckpt_path)
 
     # Log hyperparameters
     if trainer.logger:
         trainer.logger.log_hyperparams({"ckpt_path": config.ckpt_path})
 
     log.info("Starting testing!")
-    trainer.test(model=model, datamodule=datamodule, ckpt_path=config.ckpt_path)
-    
+    trainer.test(model=model, datamodule=datamodule)
     evaluate(config, trainer, model, datamodule, logger)
-    
-    
-    
-    
-    

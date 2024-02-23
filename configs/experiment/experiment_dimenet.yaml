@@ -3,7 +3,17 @@
 # to execute this experiment run:
 # python run.py +experiment=exp_example_full
 
-# specify here default training configuration
+# Make sure the num_classes match the amount of EC classes for each dataset
+# Datamodules available : num_classes
+# AF703 : 703
+# BindingMOAD : 7 (mainclass)
+# Combined_hierarchical : 96
+# Combined_mainclass : 7 (mainclass)
+# Combined_826 : 826
+# PDB300 : 300
+# PricePrOSPECCTs : 826
+# TopEnzyme_homology : 7 (mainclass)
+
 defaults:
 
   - override /datamodule: BindingMOAD
