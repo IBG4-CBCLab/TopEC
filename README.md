@@ -114,6 +114,28 @@ To resume a run from checkpoint:
 python train.py experiment=<experiment_01> ++trainer.ckpt_path=/path/to/checkpoint
 ```
 
+### Binding site prediction
+
+To train TopEC we need to know the locations of the binding site. TopEC expects as input a tuple ``(x,y,z)`` for the binding locations. 
+
+We added an example script to generate binding sites with p2rank. Alternatively you can use any binding site prediction tool.
+First obtain p2rank [here](https://github.com/rdk/p2rank) and follow the instructions for predicting binding sites.
+
+We recommend creating a single text file with a list of PDB file locations e.g. `proteins.txt`
+Then run P2Rank with:
+```
+prank predict -threads 8 -o ./output_folder -c alphafold proteins.txt
+```
+
+This will create the output folder with a file for each protein. To merge the results run:
+```
+python concatenate_binding_sites.py -f /path/to/folder -o output.csv
+```
+This will create a generated CSV with identifier, binding center tuple and rank of the predicted binding site: ``identifier | (x, y, z) | rank``.
+
+
+
+
 ### Training
 
 To run execute:
@@ -165,6 +187,18 @@ python test.py trainer=test experiment=<experiment_file> ckpt_path=/path/to/chec
 ```
 
 This will generate the evaluation reports under ``logs/evaluations`` containing a PyCM report for the test and validation sets. Furthermore, we automatically generate pr curves and realibility diagrams for the tested network.
+
+### Expanding TopEC to other classification problems.
+
+As we treat enzyme function prediction as a classification problem, we can use the TopEC framework to develop novel classification tools.
+Currently we read in the enzyme classes from the CSV files in ``./data/csv/``. For record keeping these files contain more information than strictly necessary to train deep learning models with TopEC. 
+
+In the core, TopEC expects three columns to be present. The first is `enzyme_name` which refers to the name of the data object in the h5. Usually this is the UniProtAC or PDB identifier. Secondly we need to know the predicted binding site center, in the column `centers` we put the binding site center as a tuple of X, Y, Z coordinates. The last column needed is called `hierarchical`. Here we put a separate class for enzyme hierarchy, e.g. EC: 1.1.1.1 is class 0, EC: 1.1.1.100 is class 1. One could change this to, for example, a encoding of cell locations, to train a classifier for where in the cell a protein would be present.
+
+### Using different graph models within the TopEC framework
+
+Using TopEC its quite simple using different graph models. An example of a new graph model is shown in `src/models/components/ginnet.py`. Here we have an implementation of GINNet, a graph neural network for graph interactions. Adding a new model is as simple as creating a new class based on the `torch.nn.Module` module. The class only needs to contain a `forward(x, pos, edge_index, batch)` function taking the input of the graph embedding, node positions, possible edge indexes and the batch argument. Then we can add any tunable layer in the forward function, as long as we return the resulting graph embedding and output of the network.
+
 
 # License
 ![license][logo_license]
