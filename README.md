@@ -206,7 +206,5 @@ Using TopEC its quite simple using different graph models. An example of a new g
 
 
 # License
-![license][logo_license]
-
-[logo_license]: figure/by-nc-nd.eu.png "License"
-See LICENSE.MD. Upon publication of the paper we will switch to a CC-BY-NC-SA license.
+CC-BY-NC-SA
+See LICENSE.MD.

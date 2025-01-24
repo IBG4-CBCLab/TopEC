@@ -3,6 +3,7 @@ aiosignal
 antlr4-python3-runtime
 async-timeout
 attrs
+biopython
 certifi
 charset-normalizer
 filelock
