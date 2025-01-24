@@ -85,6 +85,11 @@ Using a compute node with 48 cores can do this in roughly 5 hours. Using a singl
 
 **Alternatively you can obtain the H5 file [here](https://fz-juelich.sciebo.de/s/zvnTIm0TdJmPwdd) and skip the creation of the h5 file**
 
+If you want more flexibility over the dataset creation for your own experiments you can alter the create_h5dataset.yaml in the configs and run:
+```
+python run_dataset_create.py
+```
+
 # Usage
 
 We use hydra to parse configuration files in the ``configs/`` folder. Generally you do not need to make any changes except to check your paths are set correctly. We note down the most important configuration files you might want to change if you want to run your own experiments. For a detailed explanation to work with configuration files see [here](https://hydra.cc/docs/tutorials/basic/your_first_app/config_file/). 
